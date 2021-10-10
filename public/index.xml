@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zebra Blog</title>
+    <link>http://localhost:8080/</link>
+    <description>Recent content on Zebra Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 02 Feb 2021 10:20:19 +0600</lastBuildDate><atom:link href="http://localhost:8080/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lighting system</title>
+      <link>http://localhost:8080/blog/2021-09-27_lighting_system/</link>
+      <pubDate>Mon, 27 Sep 2021 18:24:00 +0700</pubDate>
+      
+      <guid>http://localhost:8080/blog/2021-09-27_lighting_system/</guid>
+      <description>Lighting gives games a more professional look. I wanted to introduce a simple lighting system to light blocks and entities. The lighting ideas are mostly based on the game Starbound.</description>
+    </item>
+    
+    <item>
+      <title>Golang init() function</title>
+      <link>http://localhost:8080/blog/2021-09-17_golang_init_function/</link>
+      <pubDate>Fri, 17 Sep 2021 11:05:00 +0700</pubDate>
+      
+      <guid>http://localhost:8080/blog/2021-09-17_golang_init_function/</guid>
+      <description>This post is about the init function in golang and how it can be used for package initialization, avoiding filling the main function with initialization for each packet.</description>
+    </item>
+    
+    <item>
+      <title>Client authentication</title>
+      <link>http://localhost:8080/blog/2021-09-05_client_authentication/</link>
+      <pubDate>Sun, 05 Sep 2021 08:53:00 +0700</pubDate>
+      
+      <guid>http://localhost:8080/blog/2021-09-05_client_authentication/</guid>
+      <description>Client-server encryption and authentication based on Minecraft server.
+Protocol C: client
+S: server
+C → S: Login request Client requests the login process to start.</description>
+    </item>
+    
+    <item>
+      <title>Zebra</title>
+      <link>http://localhost:8080/author/zebra/</link>
+      <pubDate>Tue, 02 Feb 2021 10:20:19 +0600</pubDate>
+      
+      <guid>http://localhost:8080/author/zebra/</guid>
+      <description>Student of Computer Science at University of Zaragoza (🇪🇸). Cybersecurity enthusiast. Golang developer. Cat lover.</description>
+    </item>
+    
+    <item>
+      <title>Search Result</title>
+      <link>http://localhost:8080/search/</link>
+      <pubDate>Mon, 24 Sep 2018 11:07:10 +0600</pubDate>
+      
+      <guid>http://localhost:8080/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:8080/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:8080/contact/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>No Search Found</title>
+      <link>http://localhost:8080/404/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:8080/404/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zebra</title>
+      <link>http://localhost:8080/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:8080/about/</guid>
+      <description>Student of Computer Science at University of Zaragoza (🇪🇸).
+Cybersecurity enthusiast. Golang developer. Cat lover.</description>
+    </item>
+    
+  </channel>
+</rss>
