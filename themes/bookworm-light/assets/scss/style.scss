@@ -32,5 +32,6 @@ $color-primary: {{.color_primary}};
 @import 'typography';
 @import 'buttons';
 @import 'common';
+@import 'shortcodes';
 @import 'templates/navigation';
 @import 'templates/main';
