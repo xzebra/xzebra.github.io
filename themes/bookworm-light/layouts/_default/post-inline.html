@@ -16,7 +16,7 @@
     <ul class="card-meta list-inline mb-2">
       <li class="list-inline-item mb-2">
         {{ with site.GetPage (.Params.Author | urlize | lower) }}
-        <a href="{{.Permalink}}" class="card-meta-author">
+        <a href="{{ "about" | absURL }}" class="card-meta-author">
           {{if .Params.image}}
           <img loading="lazy" src="{{.Params.image | absURL}}" alt="{{.Title}}">
           {{else}}
