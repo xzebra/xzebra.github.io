@@ -7,9 +7,9 @@ draft: false
 social:
   - link: "https://www.github.com/xzebra"
     icon: "lab la-github"
-    
-  - link: "https://app.hackthebox.eu/users/680488"
-    icon: "las la-cube"
+
+  - link: "mailto:zebrv.apps@gmail.com"
+    icon: "las la-envelope"
 
   - link: "https://www.linkedin.com/in/jorge-romanos-a97174161/"
     icon: "lab la-linkedin-in"

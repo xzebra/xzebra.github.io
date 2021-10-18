@@ -16,6 +16,9 @@ social:
   - link: "https://www.github.com/xzebra"
     icon: "lab la-github"
     
+  - link: "mailto:zebrv.apps@gmail.com"
+    icon: "las la-envelope"
+    
   - link: "https://app.hackthebox.eu/users/680488"
     icon: "las la-cube"
   
