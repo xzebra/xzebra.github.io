@@ -205,7 +205,12 @@ a.post-title:hover,
     padding-left: 0;
 
     li {
+      padding-left: 1em;
       margin-bottom: 10px;
+    }
+
+    ol, ul {
+      margin-bottom: 0;
     }
   }
 
