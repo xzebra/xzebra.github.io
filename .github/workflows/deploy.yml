@@ -71,7 +71,7 @@ jobs:
       - name: Encrypt required blog posts
         working-directory: ./xzebra.github.io
         run: |
-          ../hugo-encrypt/hugo-encrypt -sitePath public
+          ../hugo-encrypt/hugo-encrypt -sitePath public > /dev/null 2>&1
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.7.0-8
