@@ -38,7 +38,7 @@ jobs:
           path: 'personal-blog'
 
       - name: Generate blog from Notion
-        uses: xzebra/notion-blog@master
+        uses: xzebra/notion-blog@upgrade
         with:
           database-id: '9338ce6af74241259bdb230a9da697cc'
           content-folder: content/blog
