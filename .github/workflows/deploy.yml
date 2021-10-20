@@ -62,14 +62,12 @@ jobs:
           extended: true
 
       - name: Generate static content
-        working-directory: ./xzebra.github.io
         run: |
           hugo --minify -d public
           pwd
           ls -la public
 
       - name: Encrypt required blog posts
-        working-directory: ./xzebra.github.io
         run: |
           ../hugo-encrypt/hugo-encrypt -sitePath public
 
