@@ -3,12 +3,14 @@
 <div>
     <a target="_blank" rel="noopener noreferrer" class="bookmark" href="{{ .Get "url" }}">
     <div>
-        {{ with .Get "title"}}
-        <div class="bookmark-title">{{ . }}</div>
-        {{ end }}
-        {{ with .Get "description"}}
-        <div class="bookmark-description">{{ . }}</div>
-        {{ end }}
+        <div class="bookmark-title">
+        {{ if .Get "title" -}}
+            {{ .Get "title" }}
+        {{else -}}
+            {{ . }}
+        {{ end -}}
+        </div>
+        <div class="bookmark-description">{{ .Inner }}</div>
         <div class="bookmark-link">
             {{ with .Get "favicon" }}
             <img src="{{ . }}" alt="Bookmark Target Favicon" loading="lazy">
