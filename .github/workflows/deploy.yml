@@ -54,6 +54,8 @@ jobs:
           property-description: "Description"
           property-tags: "Tags"
           property-categories: "Categories"
+          filter-prop: 'Status'
+          filter-value: 'Published 🖨'
           use-shortcodes: true
         env:
           NOTION_SECRET : ${{ secrets.NOTION_SECRET }}
