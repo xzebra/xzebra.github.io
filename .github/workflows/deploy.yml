@@ -1,0 +1,76 @@
+name: deploy
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # daily
+  push:
+    branches: [master]
+  workflow_dispatch:
+jobs:
+  deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      - name: Check out hugo encrypt
+        uses: actions/checkout@master
+        with:
+          repository: Izumiko/hugo-encrypt
+          path: 'hugo-encrypt'
+
+      - name: Build hugo encrypt
+        working-directory: ./hugo-encrypt
+        run: |
+          go mod tidy
+          go build
+
+      - name: Check out personal blog
+        uses: actions/checkout@v2
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+          path: 'personal-blog'
+
+      - name: Generate blog from Notion
+        uses: xzebra/notion-blog@master
+        with:
+          database-id: '9338ce6af74241259bdb230a9da697cc'
+          content-folder: content/blog
+          images-folder: static/images/posts
+          images-link: /images/posts
+          archetype-file: archetypes/blog.md
+          property-description: "Description"
+          property-tags: "Tags"
+          property-categories: "Categories"
+          filter-prop: 'Status'
+          filter-value: 'Finished ✅'
+          # published-value: 'Published 🖨'
+          use-shortcodes: true
+        env:
+          NOTION_SECRET : ${{ secrets.NOTION_SECRET }}
+
+      - name: Generate static content
+        working-directory: ./personal-blog
+        run: |
+          hugo --cleanDestinationDir -d public
+
+      - name: Encrypt required blog posts
+        working-directory: ./personal-blog
+        run: |
+          ../hugo-encrypt/hugo-encrypt -sitePath public
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.7.0-8
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # need to exclude .gitignore as actions-gh-pages wont deploy
+          # ignored files
+          exclude_assets: '.github,**/.gitignore'
+          force_orphan: true
