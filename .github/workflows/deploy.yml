@@ -81,4 +81,4 @@ jobs:
           # need to exclude .gitignore as actions-gh-pages wont deploy
           # ignored files
           exclude_assets: '.github,**/.gitignore'
-          force_orphan: true
+          # force_orphan: true
