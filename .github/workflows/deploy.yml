@@ -41,10 +41,10 @@ jobs:
         uses: xzebra/notion-blog@upgrade
         with:
           database-id: '9338ce6af74241259bdb230a9da697cc'
-          content-folder: content/blog
-          images-folder: static/images/posts
+          content-folder: ./xzebra.github.io/content/blog
+          images-folder: ./xzebra.github.io/static/images/posts
           images-link: /images/posts
-          archetype-file: archetypes/blog.md
+          archetype-file: ./xzebra.github.io/archetypes/blog.md
           property-description: "Description"
           property-tags: "Tags"
           property-categories: "Categories"
