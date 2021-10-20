@@ -43,7 +43,7 @@ jobs:
           path: 'xzebra.github.io'
 
       - name: Regenerate blog from Notion
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reset == "true" }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reset == 'true' }}
         uses: xzebra/notion-blog@v1.1
         with:
           database-id: '9338ce6af74241259bdb230a9da697cc'
@@ -59,7 +59,7 @@ jobs:
           NOTION_SECRET : ${{ secrets.NOTION_SECRET }}
           
       - name: Generate new posts from Notion
-        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.reset != "true" }}
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.reset != 'true' }}
         uses: xzebra/notion-blog@v1.1
         with:
           database-id: '9338ce6af74241259bdb230a9da697cc'
@@ -103,4 +103,4 @@ jobs:
           # need to exclude .gitignore as actions-gh-pages wont deploy
           # ignored files
           exclude_assets: '.github,**/.gitignore'
-          force_orphan: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reset == "true" }}
+          force_orphan: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reset == 'true' }}
