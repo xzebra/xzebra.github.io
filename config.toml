@@ -23,6 +23,11 @@ home = ["HTML", "RSS", "JSON"]
 [markup.goldmark.renderer]
 unsafe= true
 
+[markup.highlight]
+codeFences = true
+noClasses = true
+style = "github"
+
 
 ############################## Plugins ##############################
 # CSS Plugins
