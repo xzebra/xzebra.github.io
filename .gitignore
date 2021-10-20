@@ -4,3 +4,6 @@
 tmp/
 
 public/
+resources/
+static/images/posts/
+content/blog/
