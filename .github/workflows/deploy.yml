@@ -6,6 +6,11 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+    inputs:
+      reset:
+        required: true
+        description: "Build all the page again (only the published posts) and reset to only one commit."
+        default: "false"
 jobs:
   deploy:
     # The type of runner that the job will run on
@@ -37,7 +42,26 @@ jobs:
           ref: ${{ github.head_ref }}
           path: 'xzebra.github.io'
 
-      - name: Generate blog from Notion
+      - name: Regenerate blog from Notion
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reset == 'true' }}
+        uses: xzebra/notion-blog@v1.1
+        with:
+          database-id: '9338ce6af74241259bdb230a9da697cc'
+          content-folder: ./xzebra.github.io/content/blog
+          images-folder: ./xzebra.github.io/static/images/posts
+          images-link: /images/posts
+          archetype-file: ./xzebra.github.io/archetypes/blog.md
+          property-description: "Description"
+          property-tags: "Tags"
+          property-categories: "Categories"
+          filter-prop: 'Status'
+          filter-value: 'Published 🖨'
+          use-shortcodes: true
+        env:
+          NOTION_SECRET : ${{ secrets.NOTION_SECRET }}
+          
+      - name: Generate new posts from Notion
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.reset != 'true' }}
         uses: xzebra/notion-blog@v1.1
         with:
           database-id: '9338ce6af74241259bdb230a9da697cc'
@@ -81,4 +105,4 @@ jobs:
           # need to exclude .gitignore as actions-gh-pages wont deploy
           # ignored files
           exclude_assets: '.github,**/.gitignore'
-          force_orphan: true
+          force_orphan: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.reset == 'true' }}
