@@ -35,7 +35,7 @@ jobs:
         with:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
-          path: 'personal-blog'
+          path: 'xzebra.github.io'
 
       - name: Generate blog from Notion
         uses: xzebra/notion-blog@upgrade
@@ -62,12 +62,12 @@ jobs:
           extended: true
 
       - name: Generate static content
-        working-directory: ./personal-blog
+        working-directory: ./xzebra.github.io
         run: |
           hugo --minify -d public
 
       - name: Encrypt required blog posts
-        working-directory: ./personal-blog
+        working-directory: ./xzebra.github.io
         run: |
           ../hugo-encrypt/hugo-encrypt -sitePath public
 
