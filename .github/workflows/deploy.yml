@@ -55,10 +55,16 @@ jobs:
         env:
           NOTION_SECRET : ${{ secrets.NOTION_SECRET }}
 
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.81.0'
+          extended: true
+
       - name: Generate static content
         working-directory: ./personal-blog
         run: |
-          hugo --cleanDestinationDir -d public
+          hugo --minify -d public
 
       - name: Encrypt required blog posts
         working-directory: ./personal-blog
