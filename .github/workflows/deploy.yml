@@ -101,7 +101,7 @@ jobs:
         working-directory: ./xzebra.github.io
         run: |
           # Merge indexes
-          jq -s '.[1] + .[0] | unique_by(.title)' public/index.json ../blog-public/index.json
+          jq -sc '.[1] + .[0] | unique_by(.title)' public/index.json ../blog-public/index.json >public/index.json
           # TODO: merge RSS too
 
       - name: Encrypt required blog posts
