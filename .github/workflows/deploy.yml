@@ -38,7 +38,7 @@ jobs:
       - name: Check out current published blog
         uses: actions/checkout@v2
         with:
-          rev: 'gh-pages'
+          ref: 'gh-pages'
           path: 'blog-public'
 
       - name: Check out Hugo blog
