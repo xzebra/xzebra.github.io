@@ -54,13 +54,7 @@ jobs:
           published-value: 'Published 🖨'
           use-shortcodes: true
         env:
-          GITHUB_ACTIONS: 'true'
           NOTION_SECRET : ${{ secrets.NOTION_SECRET }}
-
-      - name: Debug number of changed
-        working-directory: ./xzebra.github.io
-        run: |
-          echo "::debug: ${{ steps.notion_blog.outputs }}"
 
       - name: Setup Hugo
         if: steps.notion_blog.outputs.articles_published != '0'
