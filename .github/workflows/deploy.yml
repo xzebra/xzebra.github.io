@@ -49,7 +49,7 @@ jobs:
           property-tags: "Tags"
           property-categories: "Categories"
           filter-prop: 'Status'
-          filter-value: ['Finished ✅', 'Published 🖨']
+          filter-value: "Finished ✅,Published 🖨"
           published-value: 'Published 🖨'
           use-shortcodes: true
         env:
