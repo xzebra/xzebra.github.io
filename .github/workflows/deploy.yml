@@ -35,7 +35,13 @@ jobs:
           go mod tidy
           go build
 
-      - name: Check out personal blog
+      - name: Check out current published blog
+        uses: actions/checkout@v2
+        with:
+          rev: 'gh-pages'
+          path: 'blog-public'
+
+      - name: Check out Hugo blog
         uses: actions/checkout@v2
         with:
           # Make sure the actual branch is checked out when running on pull requests
@@ -89,8 +95,13 @@ jobs:
         working-directory: ./xzebra.github.io
         run: |
           hugo --minify -d public
-          pwd
-          ls -la public
+
+      - name: Merge new content to index
+        working-directory: ./xzebra.github.io
+        run: |
+          # Merge indexes
+          jq -s '.[1] + .[0] | unique_by(.title)' public/index.json ../blog-public/index.json
+          # TODO: merge RSS too
 
       - name: Encrypt required blog posts
         working-directory: ./xzebra.github.io
