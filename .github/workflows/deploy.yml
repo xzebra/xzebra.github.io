@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 0 * * *" # daily
   push:
-    branches: [master]
+    branches: [master, merge-index]
   workflow_dispatch:
     inputs:
       reset:
@@ -97,6 +97,7 @@ jobs:
           hugo --minify -d public
 
       - name: Merge new content to index
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.reset != 'true' }}
         working-directory: ./xzebra.github.io
         run: |
           # Merge indexes
