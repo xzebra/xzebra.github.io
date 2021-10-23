@@ -10,20 +10,20 @@
             {{ . }}
         {{ end -}}
         </div>
-        <div class="bookmark-description">{{ .Inner }}</div>
+        <div class="bookmark-description">{{ .Inner | html }}</div>
         <div class="bookmark-link">
-            {{ with .Get "favicon" }}
+            {{ with .Get "favicon" -}}
             <img src="{{ . }}" alt="Bookmark Target Favicon" loading="lazy">
-            {{ end }}
-            {{ with .Get "url"}}
+            {{ end -}}
+            {{ with .Get "url" -}}
             <div>{{ . }}</div>
-            {{ end }}
+            {{ end -}}
         </div>
     </div>
     <div class="bookmark-image">
-        {{ with .Get "img"}}
+        {{ with .Get "img" -}}
         <img src="{{ . }}" alt="" loading="lazy">
-        {{ end }}
+        {{ end -}}
     </div>
     </a>
 </div>
