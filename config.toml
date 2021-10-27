@@ -10,6 +10,7 @@ summaryLength = "20"
 googleAnalytics = "" # example : UA-123-45
 # disqus short name
 disqusShortname = "" # get your shortname form here : https://disqus.com
+enableRobotsTXT = true
 
 ############################# Modules ##############################
 [module.hugoVersion]
