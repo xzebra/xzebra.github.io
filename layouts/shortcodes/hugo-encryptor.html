@@ -1,12 +1,17 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 
 <hugo-encrypt>
-	{{ if .Get 0 }}
-		{{- $passphrase := $.Scratch.Set "passphrase" (.Get 0) -}}
+	{{ if .Get "pass" }}
+		{{- $passphrase := $.Scratch.Set "passphrase" (.Get "pass") -}}
 	{{ else if .Site.Params.HugoEncrypt.Password }}
 		{{- $passphrase := $.Scratch.Set "passphrase" .Site.Params.HugoEncrypt.Password -}}
 	{{ else }}
 		{{- $passphrase -}}
+	{{ end }}
+	{{ if .Get "placeholder" }}
+		{{- $placeholder := $.Scratch.Set "placeholder" (.Get "placeholder") -}}
+	{{ else }}
+		{{- $placeholder := $.Scratch.Set "placeholder" "Enter the password" -}}
 	{{ end }}
 	<div id="hugo-encrypt-encryption-notice" style="display:flex;justify-content:center;">
 		<noscript><span id="hugo-encrypt-enable-js">Javascript needs to be enabled to decrypt content</span></noscript>
@@ -15,7 +20,7 @@
 			<input
 				class="hugo-encrypt-input form-control rounded"
 				id="hugo-encrypt-password"
-				placeholder='Enter password'
+				placeholder='{{ $.Scratch.Get "placeholder" }}'
 			/>
 			<input
 				class="hugo-encrypt-button btn btn-primary rounded"

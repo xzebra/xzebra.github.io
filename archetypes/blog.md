@@ -37,8 +37,10 @@ draft: false
 This machine is currently **active**. Please enter the [[if $windows]]Administrator hash in SAM file[[else]]root hash (or the whole root line if there is no password hash) in `/etc/shadow`[[end]], not the `root.txt` flag.
 {{% /center %}}
 
-{{% hugo-encryptor "[[ rich .Properties.Password.RichText ]]" %}}
-[[ .Content ]]
+[[$password := rich .Properties.Password.RichText -]]
+[[$censored := printf "%c%s%c" (index $password 0) (repeat "*" (sub (len $password) 1)) (index $password (sub (len $password) 1)) -]]
+{{% hugo-encryptor pass="[[$password]]" placeholder="[[$censored]]" %}}
+[[.Content]]
 {{% /hugo-encryptor %}}
 [[ else]]
 [[ .Content ]]
