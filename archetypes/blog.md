@@ -34,7 +34,7 @@ draft: false
     [[ end -]]
 [[ end -]]
 {{% center %}}
-This machine is currently **active**. Please enter the [[if $windows]]Administrator[[else]]root[[end]] hash, not the `root.txt` flag.
+This machine is currently **active**. Please enter the [[if $windows]]Administrator hash in SAM file[[else]]root hash (or the whole root line if there is no password hash) in `/etc/shadow`[[end]], not the `root.txt` flag.
 {{% /center %}}
 
 {{% hugo-encryptor "[[ rich .Properties.Password.RichText ]]" %}}
