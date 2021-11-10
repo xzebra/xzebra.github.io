@@ -79,7 +79,7 @@ logo = "images/favicon.png"
 logo_height = "35px"
 favicon = "images/favicon.png"
 # Meta data
-description = "Zebra's personal blog"
+description = "Blog about programming projects, CTFs and games development."
 author = "xzebra"
 googleVerification = "N0OeaJ4BZaIhCWc9V7zEe1aXt3SYZThSu5vQnsd_ABc"
 # contact form action

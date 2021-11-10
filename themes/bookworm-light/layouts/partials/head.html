@@ -1,17 +1,28 @@
 <head>
   <meta charset="utf-8">
-  <title>{{ .Title }}</title>
+  <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} - {{ end }}{{ end }}{{ site.Title }}</title>
 
   <meta name="author" content="{{ site.Params.author }}">
-  <meta name="description" content="{{ with .Params.description }} {{.}} {{else}} {{ with site.Params.description }} {{.}} {{end}} {{end}}">
+  <meta name="description" content="{{- with .Params.description }}{{ . }}{{- else }}{{- if or .IsPage .IsSection}}
+    {{- .Summary | truncate 150 | default (printf "%s - %s" .Title  site.Params.title) }}{{- else }}
+    {{- with site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
+
+  <meta name="keywords" content="
+      {{- range $i, $e := (union .Params.categories .Params.tags)}}{{ if $i }}, {{ end }}{{ $e }}{{ end }}" />
 
   {{ with site.Params.googleVerification }}<meta name="google-site-verification" content="{{ . }}" />{{ end }}
 
   {{ "<!-- mobile responsive meta -->" | safeHTML}}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
+  <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}" />
+
   {{ "<!-- Favicon -->" | safeHTML}}
   <link rel="icon" href="{{ site.Params.favicon | absURL }}" type="image/x-icon">
+
+  {{ range .AlternativeOutputFormats -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" href="{{ .Permalink | safeURL }}">
+  {{ end -}}
 
   {{ "<!-- CSS Plugins -->" | safeHTML}}
   {{ partialCached "style.html" . }}
