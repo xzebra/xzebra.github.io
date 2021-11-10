@@ -78,6 +78,7 @@ color_primary = "#3399D9"
 logo = "images/favicon.png"
 logo_height = "35px"
 favicon = "images/favicon.png"
+image = "images/banner.png"
 # Meta data
 description = "Blog about programming projects, CTFs and games development."
 author = "xzebra"
