@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
-          <a class="navbar-brand font-weight-bold mr-0" href="{{site.BaseURL}}">
+          <a class="navbar-brand font-weight-bold navbar-left d-none d-lg-inline-block ml-4" href="{{site.BaseURL}}">
             {{if site.Params.logo}}
             <img loading="lazy" src="{{site.Params.logo | absURL}}" alt="{{site.Title}}" height="{{site.Params.logo_height}}">
             {{else}} {{site.Title}} {{end}}
