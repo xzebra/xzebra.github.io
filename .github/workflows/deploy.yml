@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 21 * * *" # daily
   push:
-    branches: [master, merge-index]
+    branches: [master]
   workflow_dispatch:
 jobs:
   deploy:
@@ -58,26 +58,26 @@ jobs:
           NOTION_SECRET : ${{ secrets.NOTION_SECRET }}
 
       - name: Setup Hugo
-        if: steps.notion_blog.outputs.articles_published != '0'
+        if: ${{github.event_name != 'schedule' || steps.notion_blog.outputs.articles_published != '0'}}
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.81.0'
           extended: true
 
       - name: Generate static content
-        if: steps.notion_blog.outputs.articles_published != '0'
+        if: ${{github.event_name != 'schedule' || steps.notion_blog.outputs.articles_published != '0'}}
         working-directory: ./xzebra.github.io
         run: |
           hugo --minify -d public
 
       - name: Encrypt required blog posts
-        if: steps.notion_blog.outputs.articles_published != '0'
+        if: ${{github.event_name != 'schedule' || steps.notion_blog.outputs.articles_published != '0'}}
         working-directory: ./xzebra.github.io
         run: |
           ../hugo-encrypt/hugo-encrypt -sitePath public > /dev/null 2>&1
 
       - name: Deploy
-        if: steps.notion_blog.outputs.articles_published != '0'
+        if: ${{github.event_name != 'schedule' || steps.notion_blog.outputs.articles_published != '0'}}
         uses: peaceiris/actions-gh-pages@v3.7.0-8
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
