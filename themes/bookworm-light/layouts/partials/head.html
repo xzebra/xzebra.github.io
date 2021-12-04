@@ -6,7 +6,7 @@
 
   <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} - {{ end }}{{ end }}{{ site.Title }}</title>
   <meta name="author" content="{{ site.Params.author }}">
-  <meta name="description" content="{{- with .Params.description }}{{ . }}{{- else }}{{- if or .IsPage .IsSection}}
+  <meta name="description" content="{{- with .Params.description }}{{ . | markdownify | plainify }}{{- else }}{{- if or .IsPage .IsSection}}
     {{- .Summary | truncate 150 | default (printf "%s - %s" .Title  site.Params.title) }}{{- else }}
     {{- with site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
 

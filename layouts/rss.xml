@@ -31,7 +31,7 @@
       {{ if (eq .Params.description "") -}}
       <description>{{ .Summary | truncate 150 }}</description>
       {{- else -}}
-      <description>{{ .Params.description | truncate 150 }}</description>
+      <description>{{ .Params.description | truncate 150 | markdownify | plainify }}</description>
       {{- end }}
     </item>
     {{ end -}}

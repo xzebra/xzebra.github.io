@@ -38,7 +38,7 @@
     {{ if (eq .Params.description "") }}
     <p>{{ .Plain | truncate 150 }}</p>
     {{ else }}
-    <p>{{ .Params.description | truncate 150 }}</p>
+    <p>{{ .Params.description | truncate 150 | markdownify }}</p>
     {{ end }}
 
     <!-- <a href="{{.Permalink}}" aria-label="More on {{.Title}}">Read More <i class="las la-angle-right"></i></a> -->

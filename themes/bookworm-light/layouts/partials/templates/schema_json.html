@@ -5,7 +5,7 @@
   "@type": "{{- ( .Site.Params.schema.publisherType | default "Organization") | title -}}",
   "name": {{ .Site.Title }},
   "url": {{ .Site.BaseURL }},
-  "description": {{ .Site.Params.description | plainify | truncate 180 | safeHTML }},
+  "description": {{ .Site.Params.description | markdownify | plainify | truncate 180 | safeHTML }},
   "thumbnailUrl": {{ .Site.Params.assets.favicon | default "favicon.ico" | absURL }},
   "sameAs": [
     {{- if .Site.Params.schema.sameAs }}
@@ -62,11 +62,11 @@
   "@type": "BlogPosting",
   "headline": {{ .Title | plainify}},
   "name": "{{ .Title | plainify }}",
-  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
+  "description": {{ with .Description | markdownify | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
   "keywords": [
     {{ range $i, $e := (union .Params.keywords .Params.tags) }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
   ],
-  "articleBody": "{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}",
+  "articleBody": "{{ with .Description }}{{ . | markdownify | plainify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}",
   "wordCount" : "{{ .WordCount }}",
   "inLanguage": {{ .Language.Lang | default "en-us" }},
   {{ with .Params.image -}}

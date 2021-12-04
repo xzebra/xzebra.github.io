@@ -33,6 +33,8 @@ draft: false
         [[ $windows = 1 -]]
     [[ end -]]
 [[ end -]]
+[[ .Description ]]
+
 {{% center %}}
 This machine is currently **active**. Please enter the [[if $windows]]Administrator hash in SAM file[[else]]root hash (or the whole root line if there is no password hash) in `/etc/shadow`[[end]], not the `root.txt` flag.
 {{% /center %}}
