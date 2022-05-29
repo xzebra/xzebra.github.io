@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://xzebra.github.io/"
+baseURL = "https://xzebra.dev/"
 title = "Zebra Blog"
 theme = "bookworm-light"
 # post pagination
