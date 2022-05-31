@@ -39,6 +39,7 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
+  hideFooter: true
   showtoc: false
   tocopen: false
 
@@ -52,7 +53,7 @@ params:
     safari_pinned_tab: "/images/favicon.png"
 
   label:
-    text: ""
+    text: "Zebra"
     icon: /apple-touch-icon.png
     iconHeight: 35
 
@@ -94,6 +95,7 @@ params:
 
   cover:
     hidden: true # hide everywhere but not in structured data
+    hidden: false # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 

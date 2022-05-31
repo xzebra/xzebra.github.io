@@ -8,6 +8,6 @@
     <span class="callout-emoji">{{ . }}</span>
     {{ end }}
   <div class="callout-inner">
-    {{ .Inner | markdownify }}
+    {{ .Inner | plainify | markdownify }}
   </div>
 </div>
