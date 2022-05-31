@@ -1,7 +1,5 @@
 ---
-title: "Search Result"
-date: 2018-09-24T11:07:10+06:00
-description: "this is meta description"
+title: "Search"
 layout: "search"
-draft: false
+placeholder: "Search articles by title or summary"
 ---
