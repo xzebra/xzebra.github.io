@@ -1,0 +1,27 @@
+.profile_inner {
+  max-width: 500px;
+  text-align: left;    
+}
+
+.profile_inner > h1 {
+  font-weight: bold; 
+  font-size: 26px;
+}
+
+.profile_inner > span {
+  /* color: var(--tertiary); */
+  color: var(--secondary);
+}
+
+.profile_inner > p {
+  /* color: var(--secondary); */
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+
+  margin-block-start: 2em;
+  margin-block-end: 2em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
