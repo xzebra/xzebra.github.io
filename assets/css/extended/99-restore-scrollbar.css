@@ -1,5 +1,0 @@
-::-webkit-scrollbar{ background: var(--theme); }
-
-html {
-  overflow-y: auto;
-}
