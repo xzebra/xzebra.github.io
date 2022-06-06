@@ -10,6 +10,8 @@ tags:[[ range .Tags ]]
     - "[[ .Name ]]"[[end]]
 categories:[[ range .Categories ]]
     - "[[ .Name ]]"[[end]]
+series: [[ range .Properties.Series.MultiSelect ]]
+    - "[[ .Name ]]"[[end]]
 draft: false
 ---
 
