@@ -7,6 +7,28 @@
       {{ .Title }}
       {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
     </h1>
+    <div class="">
+      {{- $series := $.GetTerms "series" }}
+      {{- if gt ($series | len) 0 }}
+      <ul class="post-series">
+        <span class="secondary-text">
+          This post belongs to this series:
+        </span>
+        {{- range $series }}
+        <li>
+          {{ $seriesColor := "#444444" }}
+          {{ with site.GetPage .RelPermalink }}
+          {{ $seriesColor = .Params.Color | default "#444444" }}
+          {{ end }}
+          <a rel="noopener noreferrer" href='{{ .Permalink }}' class="link-highlight"
+            style='--highlight-color: {{ $seriesColor }}'>
+            {{ .LinkTitle }}
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+      {{- end }}
+    </div>
     {{- if .Description }}
     <div class="post-description">
       {{ .Description | markdownify }}
