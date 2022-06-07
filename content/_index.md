@@ -7,6 +7,8 @@ I'm a Software Engineering student at the {{< highlighted-link color="#47aeff" u
 interest in iOS. Cybersecurity enthusiast. I love automating stuff and in my
 free time I create applications and tools.
 
+Currently working at {{< highlighted-link color="#e32525" url="https://orbeseguridad.es" >}}Orbe Seguridad{{< /highlighted-link >}} as a SOC analyst, and automating the cybersecurity tools as my degree's final project.
+
 I started learning code by modding videogames and took it more seriously with
 competitive programming (and made it to the national final) and I've
 participated in many hackathons.

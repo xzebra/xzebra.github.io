@@ -95,12 +95,16 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
-    - name: twitter
-      url: "https://twitter.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
-    - name: github
-      url: "https://github.com/"
+    - name: github 
+      url: "https://www.github.com/xzebra"
+    - name: email
+      url: "mailto:contact@xzebra.dev"
+    - name: hackthebox
+      url: "https://app.hackthebox.eu/users/680488"
+    - name: codesignal
+      url: "https://app.codesignal.com/profile/xzebra"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/jorge-romanos-a97174161/"
 
   analytics:
     google:
