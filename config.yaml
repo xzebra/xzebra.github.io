@@ -1,5 +1,4 @@
-# baseURL: "https://xzebra.dev/"
-baseURL: ""
+baseURL: "https://xzebra.dev/"
 title: Zebra
 paginate: 5
 theme: PaperMod
@@ -10,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: UA-123-45
+# googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
@@ -64,10 +63,10 @@ params:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
     favicon: "/images/favicon.png"
-    favicon16x16: "/images/favicon.png"
-    favicon32x32: "/images/favicon.png"
-    apple_touch_icon: "/images/favicon.png"
-    safari_pinned_tab: "/images/favicon.png"
+    favicon16x16: "/images/favicon16x16.png"
+    favicon32x32: "/images/favicon32x32.png"
+    apple_touch_icon: "/images/apple-touch-icon.png"
+    # safari_pinned_tab: "/images/favicon.png"
 
   label:
     text: "Zebra"
