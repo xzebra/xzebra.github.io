@@ -1,0 +1,6 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+<a target="_blank" rel="noopener noreferrer" href='{{ .Get "url" }}' class="link-highlight"
+  style='--highlight-color: {{ .Get "color" | safeHTML }}'>
+  {{ .Inner | html }}
+</a>

@@ -1,5 +1,5 @@
 ---
-title: "Zebra Blog"
+title: "Blog"
 description: ""
 draft: false
 ---

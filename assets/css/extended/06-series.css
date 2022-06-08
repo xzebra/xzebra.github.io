@@ -1,0 +1,22 @@
+.post-series a, .post-series span {
+  color: var(--secondary) !important;
+}
+
+.post-series li {
+  display: inline-block;
+  margin-inline-end: 3px;
+  margin-bottom: 5px;
+}
+
+.post-series a {
+  display: block;
+  margin-inline-start: 14px;
+  margin-inline-end: 14px;
+  /* padding-inline-start: 14px; */
+  /* padding-inline-end: 14px; */
+  /* font-size: 14px; */
+}
+
+.post-tags.post-series > span {
+  margin-right: 3px;
+}
