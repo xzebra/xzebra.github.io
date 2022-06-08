@@ -36,6 +36,8 @@ jobs:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
           path: 'xzebra.github.io'
+          # Get also submodules
+          submodules: 'recursive'
 
       - name: Retrieve posts from Notion
         id: notion_blog
