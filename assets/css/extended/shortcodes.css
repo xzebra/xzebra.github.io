@@ -22,6 +22,9 @@
 }
 
 .bookmark-title {
+  color: var(--primary);
+  font-weight: 500; /* Close to bold */
+
   font-size: 14px;
   line-height: 20px;
   white-space: nowrap;
@@ -32,6 +35,9 @@
 }
 
 .bookmark-description {
+  color: var(--primary);
+  font-weight: 300;
+
   font-size: 12px;
   line-height: 16px;
   opacity: 0.8;
@@ -52,9 +58,11 @@
 }
 
 .bookmark-link > div {
+  color: var(--secondary);
+  font-weight: 100;
+
   font-size: 12px;
   line-height: 16px;
-  color: var(--border);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
