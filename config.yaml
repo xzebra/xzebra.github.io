@@ -103,7 +103,7 @@ params:
     - name: codesignal
       url: "https://app.codesignal.com/profile/xzebra"
     - name: linkedin
-      url: "https://www.linkedin.com/in/jorge-romanos-a97174161/"
+      url: "https://www.linkedin.com/in/jorge-romanos"
 
   analytics:
     google:

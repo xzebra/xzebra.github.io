@@ -5,9 +5,7 @@ description: "(a.k.a. Zebra)"
 
 I'm a Software Engineering student at the {{< highlighted-link color="#47aeff" url="https://eina.unizar.es/en/welcome" >}}University of Zaragoza{{< /highlighted-link >}} with a special
 interest in iOS. Cybersecurity enthusiast. I love automating stuff and in my
-free time I create applications and tools.
-
-Currently working at {{< highlighted-link color="#e32525" url="https://orbeseguridad.es" >}}Orbe Seguridad{{< /highlighted-link >}} as a SOC analyst, and automating the cybersecurity tools as my degree's final project.
+free time I create applications and tools. Currently working at {{< highlighted-link color="#004bbf" url="https://hiberus.com/en" >}}Hiberus{{< /highlighted-link >}} as an iOS Developer.
 
 I started learning code by modding videogames and took it more seriously with
 competitive programming (and made it to the national final) and I've
