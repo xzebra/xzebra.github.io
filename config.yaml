@@ -38,6 +38,7 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: true
   defaultContentLanguage: en
+  # defaultContentLanguageInSubdir: true
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -132,6 +133,16 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: ["title", "description"]
+
+
+languages:
+    en:
+        languageName: "English"
+        weight: 1
+    es:
+        languageName: "Spanish"
+        weight: 2
+
 menu:
   main:
     - identifier: home
