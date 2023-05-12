@@ -1,0 +1,16 @@
+.contact-form input, .contact-form textarea {
+  margin: 5px;
+  padding: 4px 10px;
+  width: 100%;
+  color: var(--primary);
+  border: 2px solid var(--tertiary);
+  border-radius: var(--radius);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: var(--secondary);
+}
+
+.contact-form input[type="submit"] {
+  background: var(--tertiary);
+}
