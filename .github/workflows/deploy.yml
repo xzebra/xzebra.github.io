@@ -63,7 +63,7 @@ jobs:
         if: ${{github.event_name != 'schedule' || steps.notion_blog.outputs.articles_published != '0'}}
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.81.0'
+          hugo-version: '0.111.3'
           extended: true
 
       - name: Generate static content
