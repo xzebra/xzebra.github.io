@@ -41,7 +41,7 @@ jobs:
 
       - name: Retrieve posts from Notion
         id: notion_blog
-        uses: xzebra/notion-blog@fix-images
+        uses: xzebra/notion-blog@master
         with:
           database-id: '9338ce6af74241259bdb230a9da697cc'
           content-folder: ./xzebra.github.io/content/blog
