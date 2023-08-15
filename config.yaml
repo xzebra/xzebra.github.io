@@ -96,6 +96,10 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
+    - name: twitter
+      url: "https://x.com/zebra_dev"
+    - name: instagram
+      url: "https://instagram.com/zebra_dev"
     - name: github 
       url: "https://www.github.com/xzebra"
     - name: email
