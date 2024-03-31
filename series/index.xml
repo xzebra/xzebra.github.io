@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Series on Zebra</title>
+    <link>https://xzebra.dev/series/</link>
+    <description>Recent content in Series on Zebra</description>
+    <image>
+      <url>https://xzebra.dev/images/banner.png</url>
+      <link>https://xzebra.dev/images/banner.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 02 Dec 2021 23:37:00 +0700</lastBuildDate><atom:link href="https://xzebra.dev/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackTheBox Machines</title>
+      <link>https://xzebra.dev/series/hackthebox/</link>
+      <pubDate>Thu, 02 Dec 2021 23:37:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/series/hackthebox/</guid>
+      <description>Machines writeups of solved in HackTheBox</description>
+    </item>
+    
+    <item>
+      <title>Zworld game</title>
+      <link>https://xzebra.dev/series/zworld/</link>
+      <pubDate>Mon, 27 Sep 2021 18:24:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/series/zworld/</guid>
+      <description>Social multiplayer game prototype</description>
+    </item>
+    
+  </channel>
+</rss>

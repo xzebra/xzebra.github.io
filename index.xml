@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hi! I&#39;m Jorge on Zebra</title>
+    <link>https://xzebra.dev/</link>
+    <description>Recent content in Hi! I&#39;m Jorge on Zebra</description>
+    <image>
+      <url>https://xzebra.dev/images/banner.png</url>
+      <link>https://xzebra.dev/images/banner.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 02 Dec 2021 23:37:00 +0700</lastBuildDate><atom:link href="https://xzebra.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackTheBox Writeup: EarlyAccess</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_earlyaccess/</link>
+      <pubDate>Thu, 02 Dec 2021 23:37:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_earlyaccess/</guid>
+      <description>Really fun machine where OSINT is very important. I learned about Docker container privilege escalation.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Developer</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_developer/</link>
+      <pubDate>Wed, 01 Dec 2021 23:14:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_developer/</guid>
+      <description>In this machine I learnt about tabnapping and had to reverse a binary using an AES cypher.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Unicode</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_unicode/</link>
+      <pubDate>Sun, 28 Nov 2021 11:01:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_unicode/</guid>
+      <description>Machine that shows interesting attack vectors that came with unicode integration. This taught me what `jku` claims are and decompiling a python binary. Also new `bash` blacklist bypass methods.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Backdoor</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_backdoor/</link>
+      <pubDate>Sun, 21 Nov 2021 13:11:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_backdoor/</guid>
+      <description>In this machine I learned the common attack vectors in Wordpress. Also to inspect the `proc` filesystem for running processes.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Shibboleth</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_shibboleth/</link>
+      <pubDate>Thu, 18 Nov 2021 17:34:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_shibboleth/</guid>
+      <description>This machne has tought me about common `IPMI` attacks and *Zabbix* remote code execution.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Pikaboo</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_pikaboo/</link>
+      <pubDate>Wed, 17 Nov 2021 22:57:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_pikaboo/</guid>
+      <description>In this machine I learned about `nginx` misconfigurations, `LDAP` enumeration, log poisoning and `perl` command injections.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Secret</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_secret/</link>
+      <pubDate>Tue, 16 Nov 2021 18:06:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_secret/</guid>
+      <description>Simple machine to learn about *JWT* signing and root privileged core dumps to read file contents.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Static</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_static/</link>
+      <pubDate>Mon, 01 Nov 2021 16:17:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_static/</guid>
+      <description>This machine teaches about recovering `gzip` files, some basics of *OneTimePasswords*, exploiting `xdebug` and path injection.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Devzat</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_devzat/</link>
+      <pubDate>Fri, 29 Oct 2021 17:11:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_devzat/</guid>
+      <description>Simple machine with a lot of `OSINT` and an easy `bash` command injection.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Bolt</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_bolt/</link>
+      <pubDate>Sun, 24 Oct 2021 15:37:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_bolt/</guid>
+      <description>Machine that can be solved with a bit of *OSINT*.* *It teaches about Chrome extensions `PGP` keys and *Server Side Template Injection*.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Forge</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_forge/</link>
+      <pubDate>Fri, 22 Oct 2021 16:48:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_forge/</guid>
+      <description>Machine vulnerable to `SSRF` that teaches about Python Debugger exploitation.</description>
+    </item>
+    
+    <item>
+      <title>HackTheBox Writeup: Driver</title>
+      <link>https://xzebra.dev/blog/hackthebox_writeup_driver/</link>
+      <pubDate>Sun, 17 Oct 2021 11:17:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/hackthebox_writeup_driver/</guid>
+      <description>Windows machine which teaches about `SCF` to store `NTLM` hashes and the recent *Printer Spooler* vulnerability.</description>
+    </item>
+    
+    <item>
+      <title>Notion API definition translation</title>
+      <link>https://xzebra.dev/blog/notion_api_definition_translation/</link>
+      <pubDate>Wed, 06 Oct 2021 22:42:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/notion_api_definition_translation/</guid>
+      <description>Using Typescript Compiler API to generate Golang structs from official Notion SDK.</description>
+    </item>
+    
+    <item>
+      <title>Implementing a lighting system</title>
+      <link>https://xzebra.dev/blog/implementing_a_lighting_system/</link>
+      <pubDate>Mon, 27 Sep 2021 18:24:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/implementing_a_lighting_system/</guid>
+      <description>Very simple lighting system implementation with beginner graphics knowledge to give zworld a more interesting look.</description>
+    </item>
+    
+    <item>
+      <title>Golang init() function</title>
+      <link>https://xzebra.dev/blog/golang_init_function/</link>
+      <pubDate>Fri, 17 Sep 2021 11:05:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/golang_init_function/</guid>
+      <description>Practical example of a not so widely known function in Go to initialize packets before func main.</description>
+    </item>
+    
+    <item>
+      <title>Zworld&#39;s Client Authentication protocol</title>
+      <link>https://xzebra.dev/blog/zworlds_client_authentication_protocol/</link>
+      <pubDate>Sun, 05 Sep 2021 08:53:00 +0700</pubDate>
+      
+      <guid>https://xzebra.dev/blog/zworlds_client_authentication_protocol/</guid>
+      <description>Client authentication implementation for zworld based on Minecraft’s protocol.</description>
+    </item>
+    
+    <item>
+      <title>Apps</title>
+      <link>https://xzebra.dev/apps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xzebra.dev/apps/</guid>
+      <description>These are all of my open-source projects I&amp;#39;ve worked on or I&amp;#39;m currently working on.</description>
+    </item>
+    
+    
+    <item>
+      <title>No Search Found</title>
+      <link>https://xzebra.dev/404/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xzebra.dev/404/</guid>
+      <description>This is meta description</description>
+    </item>
+    
+    
+  </channel>
+</rss>
