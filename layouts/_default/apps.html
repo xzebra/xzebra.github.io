@@ -1,0 +1,27 @@
+{{- define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title" {{- if (.Param "centerTitle" ) }}style="text-align: center" {{- end }}>
+      {{ .Title }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+      {{ .Description | markdownify }}
+    </div>
+    {{- end }}
+  </header>
+
+  <div class="post-content">
+    <div class="apps-container">
+      {{- range $.Site.Data.apps }}
+      <a class="app" href="{{ .external_url }}" target="_blank">
+        <img class="app-image" alt="{{ .title }} icon" src="{{.image }}" width="128em" />
+      </a>
+      {{- end}}
+    </div>
+  </div>
+</article>
+
+{{- end }}{{/* end main */}}

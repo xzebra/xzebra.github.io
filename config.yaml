@@ -24,6 +24,7 @@ outputs:
 taxonomies:
   category: categories
   series: series
+  app: apps
   tag: tags
 
 params:
@@ -96,12 +97,14 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
+    - name: appstore
+      url: "https://apps.apple.com/my/developer/jorge-romanos/id1661169612"
+    - name: github 
+      url: "https://www.github.com/xzebra"
     - name: twitter
       url: "https://x.com/zebra_dev"
     - name: instagram
       url: "https://instagram.com/zebra_dev"
-    - name: github 
-      url: "https://www.github.com/xzebra"
     - name: email
       url: "mailto:contact@xzebra.dev"
     - name: hackthebox
@@ -150,22 +153,26 @@ languages:
 menu:
   main:
     - identifier: home
-      name: home
+      name: whoami
       url: /
       weight: 10
     - identifier: blog
       name: blog
       url: /blog/
       weight: 20
-    - identifier: series
-      name: series
-      url: /series/
-      weight: 30
-    - identifier: search
-      # name: search
-      name: 🔍
-      url: /search/
+    # - identifier: series
+    #   name: series
+    #   url: /series/
+    #   weight: 30
+    - identifier: apps
+      name: apps
+      url: /apps/
       weight: 40
+    # - identifier: search
+    #   # name: search
+    #   name: 🔍
+    #   url: /search/
+    #   weight: 50
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:

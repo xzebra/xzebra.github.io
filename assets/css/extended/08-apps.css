@@ -1,0 +1,29 @@
+.apps-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+}
+
+a.app {
+  text-decoration: none;
+  box-shadow: none;
+  transition: scale .5s ease-in-out;
+}
+
+a.app:hover {
+  transition: scale .5s ease-in-out;
+  scale: 110%;
+}
+
+img.app-image {
+  display: flex;
+  border-radius: 20px;
+}
