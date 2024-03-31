@@ -151,26 +151,26 @@ languages:
 menu:
   main:
     - identifier: home
-      name: home
+      name: whoami
       url: /
       weight: 10
     - identifier: blog
       name: blog
       url: /blog/
       weight: 20
-    - identifier: series
-      name: series
-      url: /series/
-      weight: 30
+    # - identifier: series
+    #   name: series
+    #   url: /series/
+    #   weight: 30
     - identifier: apps
       name: apps
       url: /apps/
       weight: 40
-    - identifier: search
-      # name: search
-      name: 🔍
-      url: /search/
-      weight: 50
+    # - identifier: search
+    #   # name: search
+    #   name: 🔍
+    #   url: /search/
+    #   weight: 50
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:
