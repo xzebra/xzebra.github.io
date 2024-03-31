@@ -97,12 +97,14 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
+    - name: appstore
+      url: "https://apps.apple.com/my/developer/jorge-romanos/id1661169612"
+    - name: github 
+      url: "https://www.github.com/xzebra"
     - name: twitter
       url: "https://x.com/zebra_dev"
     - name: instagram
       url: "https://instagram.com/zebra_dev"
-    - name: github 
-      url: "https://www.github.com/xzebra"
     - name: email
       url: "mailto:contact@xzebra.dev"
     - name: hackthebox
