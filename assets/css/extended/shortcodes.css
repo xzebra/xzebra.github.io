@@ -122,42 +122,6 @@ a.link-highlight {
 }
 
 a.link-highlight:hover {
-  background: linear-gradient(180deg, transparent 0%, var(--highlight-color-with-transparency) 0%);;
+  background: linear-gradient(180deg, transparent 0%, var(--highlight-color-with-transparency) 0%);
 }
 
-/* a.link-highlight::after, a.link-highlight::before { */
-/*   content: ""; */
-
-/*   /* Fill link text */ */
-/*   position: absolute; */
-/*   top: 0; */
-/*   left: 0; */
-/*   width: 100%; */
-/*   height: 100%; */
-
-/*   z-index: -1; */
-/* } */
-
-/* a.link-highlight::after { */
-/*   opacity: 0.4; */
-/*   background: linear-gradient(180deg, transparent 60%, var(--highlight-color) 60%); */
-
-/*   transition: opacity 0.5s ease-out; */
-/*   -webkit-transition: opacity 0.5s ease-out; */
-/* } */
-
-/* a.link-highlight::before { */
-/*   opacity: 0.0; */
-/*   background: linear-gradient(180deg, transparent 0%, var(--highlight-color) 0%); */
-
-/*   transition: opacity 0.5s ease-in; */
-/*   -webkit-transition: opacity 0.5s ease-in-out; */
-/* } */
-
-/* a.link-highlight:hover::after{ */
-/*   opacity: 0.0; */
-/* } */
-
-/* a.link-highlight:hover::before { */
-/*   opacity: 0.5; */
-/* } */
