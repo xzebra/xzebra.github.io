@@ -1,0 +1,696 @@
+---
+import { Picture } from 'astro:assets';
+import SmartPicture from './SmartPicture.astro';
+import AppStoreShowcase from './AppStoreShowcase.astro';
+import appStoreConnectLogo from '../images/New_App_Store_connect_logo.webp';
+import AnimatedCurvedArrow from './AnimatedCurvedArrow.astro';
+---
+
+<section class="bento-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Increase your app conversion rate</h2>
+    </div>
+    
+    <div class="bento-grid">
+      <!-- Generate Screenshots -->
+      <div class="bento-card large">
+        <div class="card-content">
+          <h3>Generate pixel-perfect screenshots</h3>
+          <p>Create stunning App Store screenshots in minutes with our intuitive drag-and-drop editor. No design skills required.</p>
+        </div>
+        <div class="card-visual">
+          <AppStoreShowcase />
+        </div>
+      </div>
+
+      <!-- Localization -->
+      <div class="bento-card medium">
+        <div class="card-content">
+          <h3>Global reach</h3>
+          <p>Localize your screenshots for any market with built-in translation tools.</p>
+        </div>
+        <div class="card-visual">
+          <div class="localization-demo">
+            <div class="language-tabs">
+              <div class="tab" data-lang="en">🇺🇸 EN</div>
+              <div class="tab" data-lang="es">🇪🇸 ES</div>
+              <div class="tab" data-lang="fr">🇫🇷 FR</div>
+            </div>
+            <div class="translated-content">
+              <div class="text-line"></div>
+              <div class="text-line short"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A/B Testing -->
+      <div class="bento-card medium">
+        <div class="card-content">
+          <h3>A/B test with confidence</h3>
+          <p>Create multiple variants without touching the original. Test different headlines, colors, and layouts to find what converts best.</p>
+        </div>
+        <div class="card-visual">
+          <div class="ab-testing-demo">
+            <div class="variant variant-a">
+              <div class="variant-label">A</div>
+              <div class="variant-content blue"></div>
+            </div>
+            <div class="vs">vs</div>
+            <div class="variant variant-b">
+              <div class="variant-label">B</div>
+              <div class="variant-content purple"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Chart -->
+      <div class="bento-card chart">
+        <div class="card-content">
+          <h3>Proven results</h3>
+          <p>Apps that optimize their screenshots typically see an increase in conversion rates.</p>
+          <div class="stats-overlay">
+            <span class="percentage">+35%</span>
+            <span class="metric">average conversion lift</span>
+          </div>
+          <div class="chart-points">
+            <div class="chart-point" style="left: 50%; bottom: 45%"></div>
+            <div class="chart-point active" style="left: 70%; bottom: 70%"></div>
+            <div class="chart-point" style="left: 90%; bottom: 75%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Store Connect Integration -->
+      <div class="bento-card wide">
+        <div class="card-content">
+          <h3>One-click publishing</h3>
+          <p>Upload directly to App Store Connect <b>keeping the order</b>. No more manual exports, file management, or tedious upload processes.</p>
+        </div>
+        <div class="card-visual">
+          <div class="upload-demo">
+            <div class="file-stack">
+              <div class="file"></div>
+              <div class="file"></div>
+              <div class="file"></div>
+            </div>
+            <div class="curved-arrow">
+              <AnimatedCurvedArrow />
+            </div>
+            <div class="appstore-connect">
+              <SmartPicture src={appStoreConnectLogo} formats={['avif', 'webp']} alt="App Store Connect" class="asc-logo" width={60} height={60} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:inline>
+  .bento-section {
+    padding: 6rem 0;
+    background: #fafbfc;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.1;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 300px);
+    gap: 1.5rem;
+  }
+
+  .bento-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento-card.chart {
+    padding: 0;
+  }
+
+  .bento-card.chart .card-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+  }
+
+  .bento-card.chart .card-content::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--apple-green) 15%, transparent) 100%);
+    border-radius: 8px;
+    z-index: -1;
+    mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 15%, rgba(0,0,0,1) 40%);
+    -webkit-mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 15%, rgba(0,0,0,1) 40%);
+  }
+
+  .bento-card.chart .card-content .chart-points {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    z-index: -1;
+  }
+
+  .bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .bento-card.large {
+    grid-column: span 7;
+    grid-row: span 2;
+  }
+
+  .bento-card.medium {
+    grid-column: span 5;
+    grid-row: span 1;
+  }
+
+  .bento-card.chart {
+    grid-column: span 5;
+    grid-row: span 1;
+  }
+
+  .bento-card.wide {
+    grid-column: span 7;
+    grid-row: span 1;
+  }
+
+  .card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-content p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .card-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .card-visual.chart-with-stats {
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+
+  /* Localization Demo */
+  .localization-demo {
+    width: 100%;
+  }
+
+  .language-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .tab {
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+  }
+
+  .tab.active {
+    background: var(--apple-blue);
+    color: white;
+    opacity: 1;
+  }
+
+  .localization-demo {
+    animation: cycleLanguages 9s infinite;
+  }
+
+  @keyframes cycleLanguages {
+    0%, 30% {
+      /* EN active */
+    }
+    33%, 63% {
+      /* ES active */
+    }
+    66%, 96% {
+      /* FR active */
+    }
+    100% {
+      /* Back to EN */
+    }
+  }
+
+  /* Language tab animations */
+  .tab[data-lang="en"] {
+    animation: tabEN 9s infinite;
+  }
+
+  .tab[data-lang="es"] {
+    animation: tabES 9s infinite;
+  }
+
+  .tab[data-lang="fr"] {
+    animation: tabFR 9s infinite;
+  }
+
+  @keyframes tabEN {
+    0%, 30%, 100% {
+      background: var(--apple-blue);
+      color: white;
+      opacity: 1;
+    }
+    33%, 96% {
+      background: #f3f4f6;
+      color: inherit;
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes tabES {
+    0%, 30% {
+      background: #f3f4f6;
+      color: inherit;
+      opacity: 0.6;
+    }
+    33%, 63% {
+      background: var(--apple-blue);
+      color: white;
+      opacity: 1;
+    }
+    66%, 100% {
+      background: #f3f4f6;
+      color: inherit;
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes tabFR {
+    0%, 63% {
+      background: #f3f4f6;
+      color: inherit;
+      opacity: 0.6;
+    }
+    66%, 96% {
+      background: var(--apple-blue);
+      color: white;
+      opacity: 1;
+    }
+    100% {
+      background: #f3f4f6;
+      color: inherit;
+      opacity: 0.6;
+    }
+  }
+
+  .translated-content {
+    text-align: center;
+    animation: contentChange 9s infinite;
+  }
+
+  @keyframes contentChange {
+    0%, 30% {
+      /* EN - wider text */
+    }
+    33%, 63% {
+      /* ES - medium text */
+    }
+    66%, 96% {
+      /* FR - narrower text */
+    }
+  }
+
+  .translated-content .text-line:first-child {
+    animation: textLine1 9s infinite;
+  }
+
+  .translated-content .text-line.short {
+    animation: textLine2 9s infinite;
+  }
+
+  @keyframes textLine1 {
+    0%, 30% {
+      width: 80%;
+    }
+    33%, 63% {
+      width: 85%;
+    }
+    66%, 96% {
+      width: 75%;
+    }
+    100% {
+      width: 80%;
+    }
+  }
+
+  @keyframes textLine2 {
+    0%, 30% {
+      width: 60%;
+    }
+    33%, 63% {
+      width: 70%;
+    }
+    66%, 96% {
+      width: 55%;
+    }
+    100% {
+      width: 60%;
+    }
+  }
+
+  .text-line {
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    margin: 8px auto;
+    width: 80%;
+  }
+
+  .text-line.short {
+    width: 60%;
+  }
+
+  /* A/B Testing Demo */
+  .ab-testing-demo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .variant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .variant-label {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .variant-content {
+    width: 80px;
+    height: 100px;
+    border-radius: 12px;
+    transition: all 0.6s ease-in-out;
+  }
+
+  .variant-content.blue {
+    background: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-blue-contrast) 100%);
+    animation: abTestBlue 4s ease-in-out infinite;
+  }
+
+  .variant-content.purple {
+    background: linear-gradient(135deg, var(--apple-purple) 0%, var(--apple-purple-contrast) 100%);
+    animation: abTestPurple 4s ease-in-out infinite;
+  }
+
+  @keyframes abTestBlue {
+    0%, 50% { transform: scaleY(1); }
+    25% { transform: scaleY(1.2); }
+    75% { transform: scaleY(0.8); }
+  }
+
+  @keyframes abTestPurple {
+    0%, 50% { transform: scaleY(1); }
+    25% { transform: scaleY(0.8); }
+    75% { transform: scaleY(1.3); }
+  }
+
+  .variant:hover .variant-content {
+    animation-play-state: paused;
+  }
+
+  .vs {
+    font-weight: 600;
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  /* Chart with Stats Overlay */
+  .chart-with-stats {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .chart-background {
+    position: absolute;
+    top: 60%;
+    left: -2rem;
+    right: -2rem;
+    bottom: -2rem;
+    width: calc(100% + 4rem);
+    height: calc(40% + 4rem);
+    opacity: 0.8;
+    z-index: 1;
+    mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 15%, rgba(0,0,0,1) 40%);
+    -webkit-mask: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 15%, rgba(0,0,0,1) 40%);
+  }
+
+  .stats-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 1rem;
+  }
+
+  .percentage {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--apple-green);
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+  }
+
+  .metric {
+    color: #374151;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+
+  /* Chart */
+  .chart-line {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--apple-green) 15%, transparent) 100%);
+    border-radius: 8px;
+  }
+
+  .chart-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--apple-green);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--apple-green) 30%, transparent);
+  }
+
+  .chart-point.active {
+    width: 16px;
+    height: 16px;
+    background: var(--apple-green-contrast);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  /* Upload Demo */
+  .upload-demo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .file-stack {
+    position: relative;
+    width: 60px;
+    height: 50px;
+  }
+
+  .file {
+    width: 40px;
+    height: 50px;
+    background: #f3f4f6;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    position: absolute;
+  }
+
+  .file:nth-child(1) {
+    transform: rotate(-18deg);
+    z-index: 1;
+  }
+
+  .file:nth-child(2) {
+    transform: rotate(0deg);
+    z-index: 2;
+    left: 8px;
+    translate: 0 -2px;
+  }
+
+  .file:nth-child(3) {
+    transform: rotate(18deg);
+    z-index: 3;
+    left: 16px;
+    background: var(--apple-blue);
+    border-color: var(--apple-blue);
+  }
+
+  .curved-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .curved-arrow video {
+    background: transparent;
+    opacity: 0.8;
+  }
+
+  .arrow-path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawArrow 3s ease-in-out infinite;
+  }
+
+  .arrow-tip {
+    opacity: 0;
+    animation: showTip 3s ease-in-out infinite;
+  }
+
+  @keyframes drawArrow {
+    0% { stroke-dashoffset: 100; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -100; }
+  }
+
+  @keyframes showTip {
+    0% { opacity: 0; }
+    45% { opacity: 0; }
+    50% { opacity: 1; }
+    55% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .appstore-connect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .asc-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .asc-logo:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .bento-card.large {
+      grid-column: span 6;
+    }
+
+    .bento-card.medium,
+    .bento-card.chart,
+    .bento-card.wide {
+      grid-column: span 6;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .bento-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .bento-card {
+      grid-column: span 1;
+      padding: 1.5rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

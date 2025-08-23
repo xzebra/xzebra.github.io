@@ -1,0 +1,145 @@
+---
+import { Picture } from 'astro:assets';
+import macosLogo from '../images/macOS-logo.svg';
+
+const { pathname } = Astro.url;
+const isDocsPage = pathname.startsWith('/docs');
+
+let SearchBox;
+if (isDocsPage) {
+  // @ts-ignore
+  SearchBox = (await import('./SearchBox.astro')).default;
+}
+---
+
+<header class="header">
+  <div class="container">
+    <div class="nav">
+      <div class="logo">
+        <a href="/">
+          <Picture src={macosLogo} formats={['avif', 'webp']} alt="App Logo" width={48} height={48} quality={100} />
+        </a>
+      </div>
+      <div class="nav-right">
+        {isDocsPage && (
+          <div class="search-container-nav desktop-search">
+            <SearchBox />
+          </div>
+        )}
+        <nav class="nav-links">
+          <a href="/#features">Features</a>
+          <a href="/docs" class={isDocsPage ? 'active' : ''}>Docs</a>
+          <a href="https://testflight.apple.com/join/unVwUzTP">TestFlight</a>
+        </nav>
+      </div>
+    </div>
+    {isDocsPage && (
+      <div class="mobile-search">
+        <SearchBox />
+      </div>
+    )}
+  </div>
+</header>
+
+<style is:inline>
+  .header {
+    padding: 1rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .search-container-nav {
+    max-width: 300px;
+  }
+
+  .mobile-search {
+    display: none;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 1rem;
+  }
+
+  .desktop-search {
+    display: block;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    filter:
+      drop-shadow(0px 1px 0.5px rgba(0, 0, 0, 0.05))
+      drop-shadow(0px -1px 0.5px rgba(0, 0, 0, 0.05))
+      drop-shadow(1px 0px 0.5px rgba(0, 0, 0, 0.05))
+      drop-shadow(-1px 0px 0.5px rgba(0, 0, 0, 0.05))
+      ;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .logo a:hover {
+    opacity: 0.8;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #6b7280;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #111827;
+  }
+
+  @media (max-width: 768px) {
+    .nav-right {
+      gap: 1rem;
+    }
+    
+    .nav-links {
+      gap: 1rem;
+    }
+    
+    .search-container-nav {
+      max-width: 200px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .desktop-search {
+      display: none;
+    }
+    
+    .mobile-search {
+      display: block;
+    }
+  }
+</style>

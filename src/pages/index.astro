@@ -1,0 +1,29 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+
+<SiteLayout title="Zebra" description="Software developer">
+	<SiteHeader />
+	<main>
+		<section class="profile">
+			<div class="container">
+				<h1>Hi! I'm Jorge</h1>
+				<p class="subtitle">(a.k.a. Zebra)</p>
+				<div class="content">
+					<p>I'm a Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. I love automating stuff and in my free time I create applications and tools. Currently working at <a href="https://whop.com">Whop</a> as an iOS Engineer.</p>
+					<p>I started learning to code at a young age by modding videogames, until I took it more seriously with competitive programming (and made it to the national final). I've also participated in many hackathons. I studied Software Engineering at the <a href="https://eina.unizar.es/en/welcome">University of Zaragoza</a>.</p>
+					<p>I like to play videogames. I'm also quite active, always trying new hobbies and find interesting studying new fields.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+</SiteLayout>
+
+<style>
+.container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+.subtitle { color: #6b7280; margin-top: .25rem; }
+.content { margin-top: 1rem; display: grid; gap: 1rem; color: #374151; }
+.content a { color: #2563eb; text-decoration: none; }
+.content a:hover { text-decoration: underline; }
+</style>

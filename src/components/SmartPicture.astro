@@ -1,0 +1,34 @@
+---
+import { Picture } from 'astro:assets';
+
+const {
+	src,
+	alt,
+	class: className = '',
+	width,
+	height,
+	// Reasonable crisp defaults for small UI images/icons; override per usage as needed
+	densities = [1, 2, 3],
+	quality = 95,
+	formats = ['avif', 'webp', 'png'],
+	widths,
+	sizes,
+	...rest
+} = Astro.props;
+---
+
+<Picture
+	src={src}
+	alt={alt}
+	class={className}
+	width={width}
+	height={height}
+	densities={densities}
+	quality={quality}
+	formats={formats}
+	widths={widths}
+	sizes={sizes}
+	{...rest}
+/>
+
+

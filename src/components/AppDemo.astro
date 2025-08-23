@@ -1,0 +1,55 @@
+---
+import { Picture } from 'astro:assets';
+import screenshotLight from '../images/Screenshot_light.png';
+---
+
+<section class="app-demo">
+  <div class="container">
+    <div class="screenshot-wrapper">
+      <Picture src={screenshotLight} formats={['avif', 'webp']} alt="App Screenshot" class="app-screenshot" loading="eager" fetchpriority="high" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .app-demo {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .screenshot-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app-screenshot {
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .app-demo {
+      padding: 2rem 0;
+    }
+    
+    .app-screenshot {
+      max-width: 600px;
+      border-radius: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .app-screenshot {
+      max-width: 400px;
+      border-radius: 6px;
+    }
+  }
+</style>
+

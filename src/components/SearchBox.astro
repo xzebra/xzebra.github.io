@@ -1,0 +1,298 @@
+---
+// Search component that loads index dynamically and performs local search
+---
+
+<div class="search-container">
+  <div class="search-box">
+    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="m21 21-4.35-4.35"></path>
+    </svg>
+    <input 
+      type="text" 
+      id="search-input"
+      placeholder="Search documentation..." 
+      autocomplete="off"
+    />
+  </div>
+  
+  <div class="search-results" id="search-results" style="display: none;">
+    <div class="search-results-content">
+      <!-- Results will be populated by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<style is:inline>
+  .search-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    color: #6b7280;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  #search-input {
+    width: 100%;
+    padding: 8px 16px 8px 44px;
+    border: 1px solid #e5e7eb;
+    border-radius: 100px;
+    font-size: 14px;
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  #search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 4px;
+    width: 400px;
+    max-width: 400px;
+  }
+
+  .search-results-content {
+  }
+
+  .search-result {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-bottom: 1px solid #f3f4f6;
+    border-left: 3px solid transparent;
+    display: block;
+    text-decoration: none;
+  }
+
+  .search-result:last-child {
+    border-bottom: none;
+  }
+
+  .search-result:hover {
+    background-color: #f1f5f9;
+    border-left-color: #3b82f6;
+  }
+
+  .search-result:active {
+    background-color: #e2e8f0;
+  }
+
+  .search-result-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .search-result-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2px;
+    font-size: 14px;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .search-result-description {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.3;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .no-results {
+    padding: 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .search-container {
+      max-width: 100%;
+    }
+  }
+</style>
+
+<script>
+  class SearchBox {
+    constructor() {
+      this.searchIndex = null;
+      this.searchInput = document.getElementById('search-input');
+      this.searchResults = document.getElementById('search-results');
+      this.resultsContent = this.searchResults.querySelector('.search-results-content');
+      
+      this.init();
+    }
+
+    init() {
+      // Add event listeners
+      this.searchInput.addEventListener('input', this.handleSearch.bind(this));
+      this.searchInput.addEventListener('focus', this.handleFocus.bind(this));
+      
+      // Close search results when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!this.searchInput.contains(e.target) && !this.searchResults.contains(e.target)) {
+          this.hideResults();
+        }
+      });
+
+      // Handle escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          this.hideResults();
+          this.searchInput.blur();
+        }
+      });
+    }
+
+    async loadSearchIndex() {
+      if (this.searchIndex) return this.searchIndex;
+      
+      try {
+        const response = await fetch('/api/search-index.json');
+        this.searchIndex = await response.json();
+        return this.searchIndex;
+      } catch (error) {
+        console.error('Failed to load search index:', error);
+        return [];
+      }
+    }
+
+    async handleSearch(e) {
+      const query = e.target.value.trim();
+      
+      if (query.length < 2) {
+        this.hideResults();
+        return;
+      }
+
+      const index = await this.loadSearchIndex();
+      const results = this.searchDocs(index, query);
+      this.displayResults(results, query);
+    }
+
+    handleFocus() {
+      const query = this.searchInput.value.trim();
+      if (query.length >= 2) {
+        this.showResults();
+      }
+    }
+
+    searchDocs(docs, query) {
+      const queryLower = query.toLowerCase();
+      const queryWords = queryLower.split(/\s+/).filter(word => word.length > 1);
+      
+      return docs
+        .map(doc => {
+          let score = 0;
+          const titleLower = doc.title.toLowerCase();
+          const descriptionLower = doc.description.toLowerCase();
+          const contentLower = doc.content.toLowerCase();
+          
+          // Exact title match gets highest score
+          if (titleLower.includes(queryLower)) {
+            score += 100;
+          }
+          
+          // Description match gets medium score
+          if (descriptionLower.includes(queryLower)) {
+            score += 50;
+          }
+          
+          // Content match gets lower score
+          if (contentLower.includes(queryLower)) {
+            score += 25;
+          }
+          
+          // Individual word matches
+          queryWords.forEach(word => {
+            if (titleLower.includes(word)) score += 30;
+            if (descriptionLower.includes(word)) score += 15;
+            if (contentLower.includes(word)) score += 10;
+          });
+          
+          return { ...doc, score };
+        })
+        .filter(doc => doc.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 8); // Limit to 8 results
+    }
+
+    displayResults(results, query) {
+      if (results.length === 0) {
+        this.resultsContent.innerHTML = `
+          <div class="no-results">
+            No results found for "${query}"
+          </div>
+        `;
+      } else {
+        this.resultsContent.innerHTML = results
+          .map(result => `
+            <div class="search-result" onclick="window.location.href='${result.route}'" 
+                 style="padding: 12px 16px; cursor: pointer; transition: all 0.15s ease; border-bottom: 1px solid #f3f4f6; border-left: 3px solid transparent; display: block; text-decoration: none;"
+                 onmouseover="this.style.backgroundColor='#f1f5f9'; this.style.borderLeftColor='#3b82f6';"
+                 onmouseout="this.style.backgroundColor=''; this.style.borderLeftColor='transparent';">
+              <div class="search-result-content" style="width: 100%; max-width: 100%; min-width: 0; overflow: hidden;">
+                <div class="search-result-title" style="font-weight: 700; color: #111827; margin-bottom: 2px; font-size: 14px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this.highlightText(result.title, query)}</div>
+                <div class="search-result-description" style="font-size: 12px; color: #6b7280; line-height: 1.3; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${this.highlightText(result.description, query)}</div>
+              </div>
+            </div>
+          `)
+          .join('');
+      }
+      
+      this.showResults();
+    }
+
+    highlightText(text, query) {
+      const queryLower = query.toLowerCase();
+      const regex = new RegExp(`(${queryLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<mark style="background-color: #fef3c7; padding: 0 2px;">$1</mark>');
+    }
+
+    showResults() {
+      this.searchResults.style.display = 'block';
+    }
+
+    hideResults() {
+      this.searchResults.style.display = 'none';
+    }
+  }
+
+  // Initialize search when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new SearchBox();
+  });
+</script>

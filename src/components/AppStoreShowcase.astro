@@ -1,0 +1,360 @@
+---
+---
+
+<div class="appstore-showcase">
+  <div class="app-header">
+    <div class="app-icon-mock"></div>
+    <div class="app-info">
+      <div class="title-mock"></div>
+      <div class="subtitle-mock"></div>
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <div class="rating-count-mock"></div>
+      </div>
+    </div>
+    <div class="download-button">GET</div>
+  </div>
+  
+  <div class="screenshots-marquee">
+    <div class="marquee-track">
+      <!-- First set -->
+      <div class="screenshot-card red">
+        <div class="screenshot-content center top">
+          <div class="screenshot-main"></div>
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line medium"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card blue">
+        <div class="screenshot-content leading bottom">
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line medium"></div>
+          </div>
+          <div class="screenshot-main"></div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card green">
+        <div class="screenshot-content center top">
+          <div class="screenshot-main"></div>
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line short"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card yellow">
+        <div class="screenshot-content trailing bottom">
+          <div class="screenshot-text">
+            <div class="text-line medium"></div>
+            <div class="text-line short"></div>
+          </div>
+          <div class="screenshot-main"></div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card orange">
+        <div class="screenshot-content trailing top">
+          <div class="screenshot-main"></div>
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line medium"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card purple">
+        <div class="screenshot-content center bottom">
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line short"></div>
+          </div>
+          <div class="screenshot-main"></div>
+        </div>
+      </div>
+      
+      <!-- Duplicate set for seamless loop -->
+      <div class="screenshot-card red">
+        <div class="screenshot-content leading top">
+          <div class="screenshot-main"></div>
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line medium"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card blue">
+        <div class="screenshot-content trailing bottom">
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line medium"></div>
+          </div>
+          <div class="screenshot-main"></div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card green">
+        <div class="screenshot-content center top">
+          <div class="screenshot-main"></div>
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line short"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card yellow">
+        <div class="screenshot-content trailing bottom">
+          <div class="screenshot-text">
+            <div class="text-line medium"></div>
+            <div class="text-line short"></div>
+          </div>
+          <div class="screenshot-main"></div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card orange">
+        <div class="screenshot-content leading top">
+          <div class="screenshot-main"></div>
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line medium"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="screenshot-card purple">
+        <div class="screenshot-content trailing bottom">
+          <div class="screenshot-text">
+            <div class="text-line long"></div>
+            <div class="text-line short"></div>
+          </div>
+          <div class="screenshot-main"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .appstore-showcase {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 2rem 2rem 0 2rem;
+    overflow: hidden;
+  }
+  
+  .app-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+  
+  .app-icon-mock {
+    width: 50px;
+    height: 50px;
+    background: #e5e7eb;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  
+  .app-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .title-mock {
+    width: 120px;
+    height: 18px;
+    background: #d1d5db;
+    border-radius: 4px;
+  }
+  
+  .subtitle-mock {
+    width: 90px;
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: 3px;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+  
+  .stars {
+    color: #d1d5db;
+    font-size: 0.875rem;
+  }
+  
+  .rating-count-mock {
+    width: 25px;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 3px;
+  }
+  
+  .download-button {
+    padding: 0.25rem 1rem;
+    background: #e5e7eb;
+    color: #d1d5db;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .screenshots-marquee {
+    overflow: hidden;
+    position: relative;
+    margin: 0 -2rem;
+    padding: 0 2rem;
+  }  
+  .marquee-track {
+    display: flex;
+    gap: 1rem;
+    width: calc(180px * 12 + 1rem * 11);
+    animation: marqueeScroll 30s linear infinite;
+  }
+  
+  .screenshot-card {
+    width: 180px;
+    height: 320px;
+    border-radius: 24px;
+    padding: 1rem;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  
+  .screenshot-card.red {
+    background: var(--apple-red);
+  }
+  
+  .screenshot-card.blue {
+    background: var(--apple-blue);
+  }
+  
+  .screenshot-card.green {
+    background: var(--apple-green);
+  }
+  
+  .screenshot-card.yellow {
+    background: var(--apple-yellow);
+  }
+  
+  .screenshot-card.orange {
+    background: var(--apple-orange);
+  }
+  
+  .screenshot-card.purple {
+    background: var(--apple-purple);
+  }
+  
+  .screenshot-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .screenshot-main {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    min-height: 200px;
+  }
+
+  .top > .screenshot-main {
+    translate: 0 -30px;
+    transform: scaleY(1.1);
+  }
+
+  .bottom > .screenshot-main {
+    translate: 0 30px;
+    transform: scaleY(1.1);
+  }
+  
+  .screenshot-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .leading > .screenshot-text {
+    align-items: flex-start;
+  }
+
+  .trailing > .screenshot-text {
+    align-items: flex-end;
+  }
+
+  .center > .screenshot-text {
+    align-items: center;
+  }
+  
+  .text-line {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  .text-line.long {
+    width: 90%;
+  }
+  
+  .text-line.medium {
+    width: 70%;
+  }
+  
+  .text-line.short {
+    width: 50%;
+  }
+  
+  @keyframes marqueeScroll {
+    0% { 
+      transform: translateX(0); 
+    }
+    100% { 
+      transform: translateX(calc(-180px * 6 - 1rem * 5)); 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .appstore-showcase {
+      padding: 1.5rem;
+    }
+    
+    .screenshot-card {
+      width: 140px;
+      height: 280px;
+    }
+    
+    .marquee-track {
+      width: calc(140px * 12 + 1rem * 11);
+    }
+    
+    @keyframes marqueeScroll {
+      0% { 
+        transform: translateX(0); 
+      }
+      100% { 
+        transform: translateX(calc(-140px * 6 - 1rem * 5)); 
+      }
+    }
+  }
+</style>

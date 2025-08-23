@@ -1,0 +1,48 @@
+---
+import favicon from '/public/favicon.svg';
+
+export interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = 'Zebra — Software developer' } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={favicon.src} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global is:inline>
+  :root {
+    --apple-blue: rgb(0, 136, 255);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    color: #111827;
+    line-height: 1.6;
+    background: #fff;
+  }
+</style>
+
