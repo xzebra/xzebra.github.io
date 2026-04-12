@@ -188,6 +188,9 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 				cell.className = 'ghchart-cell';
 				cell.style.background = COLORS[day.level] || COLORS[0];
 				cell.style.transform = 'scale(0)';
+				const color = COLORS[day.level] || COLORS[0];
+				cell.dataset.color = color;
+				cell.style.filter = 'grayscale(100%)';
 				col.appendChild(cell);
 				allCells.push({ el: cell, col: wi, row: di });
 			});
@@ -214,8 +217,10 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 				const t = 1 - dist / RADIUS;
 				const scale = 1 + t * 0.4;
 				el.style.transform = `scale(${scale})`;
+				el.style.filter = 'grayscale(0%)';
 			} else {
 				el.style.transform = 'scale(1)';
+				el.style.filter = 'grayscale(100%)';
 			}
 		});
 	});
@@ -223,6 +228,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	chart.addEventListener('mouseleave', () => {
 		allCells.forEach(({ el }) => {
 			el.style.transform = 'scale(1)';
+			el.style.filter = 'grayscale(100%)';
 		});
 	});
 
@@ -551,7 +557,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		aspect-ratio: 1;
 		border-radius: 2px;
 		background: #ebedf0;
-		transition: none;
+		transition: filter 0.25s ease;
 	}
 
 	.teaser:hover .teaser-text {
