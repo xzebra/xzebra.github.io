@@ -212,7 +212,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			const dist = Math.sqrt(dx * dx + dy * dy);
 			if (dist < RADIUS) {
 				const t = 1 - dist / RADIUS;
-				const scale = 1 + t * 0.8;
+				const scale = 1 + t * 0.4;
 				el.style.transform = `scale(${scale})`;
 			} else {
 				el.style.transform = 'scale(1)';
@@ -260,6 +260,15 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			}, delay);
 			pendingTimers.push(id);
 		});
+
+		// Clear transitions after reveal completes so hover is instant
+		const totalDuration = allCells.length > 0 ? allCells[allCells.length - 1].col * 15 + 400 : 500;
+		const clearId = setTimeout(() => {
+			allCells.forEach(({ el }) => {
+				el.style.transition = 'none';
+			});
+		}, totalDuration);
+		pendingTimers.push(clearId);
 	}
 
 	chart.style.cursor = 'pointer';
@@ -542,7 +551,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		aspect-ratio: 1;
 		border-radius: 2px;
 		background: #ebedf0;
-		transition: transform 0.12s ease-out;
+		transition: none;
 	}
 
 	.teaser:hover .teaser-text {
