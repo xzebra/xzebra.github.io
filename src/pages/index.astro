@@ -203,24 +203,18 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	}
 
 	.bio a {
-		color: #333;
-		text-decoration: underline;
-		text-decoration-color: #ccc;
-		text-underline-offset: 2px;
-		transition: text-decoration-color 0.2s;
+		color: #111;
+		text-decoration: none;
+		font-weight: 500;
+		transition: font-weight 0.15s ease;
 	}
 
 	.bio a:hover {
-		text-decoration-color: #333;
+		font-weight: 700;
 	}
 
 	.whop-link {
 		text-decoration: none !important;
-	}
-
-	.whop-link:hover {
-		text-decoration: underline !important;
-		text-decoration-color: #333 !important;
 	}
 
 	.inline-icon {
@@ -315,8 +309,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		width: 130px;
 	}
 
-	.projects li a:hover {
-		text-decoration: underline;
+	.projects li a {
+		transition: font-weight 0.15s ease;
+	}
+
+	.projects li:hover a {
+		font-weight: 700;
 	}
 
 	.project-icon {
