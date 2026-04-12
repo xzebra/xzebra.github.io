@@ -40,6 +40,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		<section class="projects">
 			<h2>Projects</h2>
 			<ul>
+				<li class="teaser">
+					<span class="teaser-text">Always building something new...</span>
+					<div class="ghchart-wrap">
+						<div class="ghchart" id="ghchart"></div>
+					</div>
+				</li>
 				<li>
 					<a href="https://autoglot.app"><img src="/images/projects/Autoglot.svg" alt="" class="project-icon" /> Autoglot</a>
 					<span class="desc">AI-powered translation for your apps</span>
@@ -158,12 +164,90 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	});
 
 	// Make project rows clickable
-	document.querySelectorAll('.projects li').forEach(li => {
+	document.querySelectorAll('.projects li:not(.teaser)').forEach(li => {
 		li.addEventListener('click', () => {
 			const link = li.querySelector('a');
 			if (link) window.open(link.href, '_blank');
 		});
 	});
+
+	// GitHub contribution chart
+	const COLORS = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
+	const chart = document.getElementById('ghchart');
+	const teaser = document.querySelector('.teaser');
+	let allCells = [];
+
+	function buildChart(weeks) {
+		chart.innerHTML = '';
+		allCells = [];
+		weeks.forEach((week, wi) => {
+			const col = document.createElement('div');
+			col.className = 'ghchart-col';
+			week.forEach(day => {
+				const cell = document.createElement('div');
+				cell.className = 'ghchart-cell';
+				cell.style.background = COLORS[day.level] || COLORS[0];
+				cell.style.transform = 'scale(0)';
+				col.appendChild(cell);
+				allCells.push({ el: cell, col: wi });
+			});
+			chart.appendChild(col);
+		});
+	}
+
+	function animateCells(show) {
+		allCells.forEach(({ el, col }) => {
+			const delay = show ? col * 20 : (allCells[allCells.length - 1].col - col) * 15;
+			setTimeout(() => {
+				el.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)';
+				el.style.transform = show ? 'scale(1)' : 'scale(0)';
+			}, delay);
+		});
+	}
+
+	teaser.addEventListener('mouseenter', () => animateCells(true));
+	teaser.addEventListener('mouseleave', () => animateCells(false));
+
+	// Calculate how many weeks fit the container
+	const containerWidth = chart.parentElement.offsetWidth || 500;
+	const cellSize = 10; // 8px + 2px gap
+	const WEEKS = Math.floor(containerWidth / cellSize);
+
+	fetch('https://github-contributions-api.jogruber.de/v4/xzebra?y=last')
+		.then(r => r.json())
+		.then(data => {
+			const contributions = data.contributions;
+			const today = new Date();
+			const startDate = new Date(today);
+			startDate.setDate(startDate.getDate() - (WEEKS * 7));
+
+			const weeks = [];
+			let currentWeek = [];
+
+			contributions.forEach(day => {
+				const d = new Date(day.date);
+				if (d < startDate) return;
+				if (d.getDay() === 0 && currentWeek.length > 0) {
+					weeks.push(currentWeek);
+					currentWeek = [];
+				}
+				currentWeek.push(day);
+			});
+			if (currentWeek.length > 0) weeks.push(currentWeek);
+
+			buildChart(weeks.slice(-WEEKS));
+		})
+		.catch(() => {
+			const weeks = [];
+			for (let w = 0; w < WEEKS; w++) {
+				const week = [];
+				for (let d = 0; d < 7; d++) {
+					week.push({ level: 0 });
+				}
+				weeks.push(week);
+			}
+			buildChart(weeks);
+		});
 </script>
 
 <style is:inline>
@@ -346,5 +430,57 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	.projects .desc {
 		font-size: 0.875rem;
 		color: #999;
+	}
+
+	.teaser {
+		cursor: default !important;
+		flex-direction: column;
+		align-items: flex-start !important;
+	}
+
+	.teaser-text {
+		font-size: 0.875rem;
+		color: #999;
+		font-style: italic;
+	}
+
+	.ghchart-wrap {
+		width: 100%;
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transition:
+			max-height 0.5s ease,
+			opacity 0.3s ease;
+	}
+
+	.teaser:hover .ghchart-wrap {
+		max-height: 120px;
+		opacity: 1;
+	}
+
+	.ghchart {
+		display: flex;
+		gap: 2px;
+		margin-top: 6px;
+		width: 100%;
+	}
+
+	.ghchart-col {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		flex: 1;
+	}
+
+	.ghchart-cell {
+		width: 100%;
+		aspect-ratio: 1;
+		border-radius: 2px;
+		background: #ebedf0;
+	}
+
+	.teaser:hover .teaser-text {
+		color: #666;
 	}
 </style>
