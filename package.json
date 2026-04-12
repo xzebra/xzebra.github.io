@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.0",
-    "astro": "^5.12.9",
-    "gray-matter": "^4.0.3"
+    "astro": "^5.12.9"
   }
 }
