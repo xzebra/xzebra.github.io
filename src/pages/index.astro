@@ -1,35 +1,144 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import SocialIcons from '../components/SocialIcons.astro';
 ---
 
-<SiteLayout title="Zebra" description="Software developer">
-	<SiteHeader />
-	<main>
-		<section class="profile">
-			<div class="container profile_inner">
-				<h1 class="title">Hi! I’m Jorge</h1>
-				<p class="subtitle">(a.k.a. Zebra)</p>
-				<div class="content">
-					<p>I’m a Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. I love automating stuff and in my free time I create applications and tools. Currently working at <a href="https://whop.com">Whop</a> as an iOS Engineer.</p>
-					<p>I started learning to code at a young age by modding videogames, until I took it more seriously with competitive programming (and made it to the national final). I’ve also participated in many hackathons. I studied Software Engineering at the <a href="https://eina.unizar.es/en/welcome">University of Zaragoza</a> .</p>
-					<p>I like to play videogames. I’m also quite active, always trying new hobbies and find interesting studying new fields.</p>
-				</div>
-				<SocialIcons />
-			</div>
+<SiteLayout title="Jorge Romanos" description="Software developer">
+	<main class="page">
+		<header>
+			<h1>Jorge Romanos</h1>
+			<span class="alias">zebra</span>
+		</header>
+
+		<div class="bio">
+			<p>
+				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com">Whop</a> as an iOS Engineer.
+			</p>
+
+			<p>
+				I started learning to code at a young age by modding videogames, then took it more seriously with competitive programming and made it to the national final. I studied Software Engineering at the <a href="https://eina.unizar.es/en/welcome">University of Zaragoza</a>. I love automating stuff and in my free time I build apps and tools.
+			</p>
+
+			<p>
+				You can find me on <a href="https://x.com/zebra_dev">X</a>, <a href="https://instagram.com/zebra_dev">Instagram</a>, <a href="https://github.com/xzebra">GitHub</a>, or reach me via <a href="mailto:contact@xzebra.dev">email</a>.
+			</p>
+		</div>
+
+		<section class="projects">
+			<h2>Projects</h2>
+			<ul>
+				<li>
+					<a href="https://appframes.app">AppFrames</a>
+					<span class="desc">Device frame screenshots for the App Store</span>
+				</li>
+				<li>
+					<a href="https://billsharing.app">BillShare</a>
+					<span class="desc">Split bills with friends</span>
+				</li>
+				<li>
+					<a href="https://blocko.app">Blocko</a>
+					<span class="desc">Block distracting apps</span>
+				</li>
+				<li>
+					<a href="https://visitplaces.app">Places</a>
+					<span class="desc">Save and share places you visit</span>
+				</li>
+				<li>
+					<a href="https://timedeposit.app">TimeDeposit</a>
+					<span class="desc">Track your time deposits</span>
+				</li>
+			</ul>
 		</section>
 	</main>
 </SiteLayout>
 
 <style>
-.container { max-width: 500px; margin: 0 auto; padding: 4rem 1rem 3rem; }
-.title { font-size: 26px; line-height: 1.25; margin: 0; text-align: left; font-weight: 700; }
-.subtitle { color: #6b7280; margin: .25rem 0 0 0; text-align: left; display: block; }
-.content { margin-top: 1rem; display: grid; gap: 1.25rem; color: #374151; }
-.content a { color: #2563eb; text-decoration: none; }
-.content a:hover { text-decoration: underline; }
-.social { list-style: none; display: flex; gap: .75rem; margin-top: 2rem; padding: 0; }
-.social a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid #e5e7eb; border-radius: 8px; color: #111827; text-decoration: none; font-size: 0.9rem; }
-.social a:hover { background: #f9fafb; }
+	.page {
+		max-width: 550px;
+		margin: 0 auto;
+		padding: 5rem 1.5rem 4rem;
+	}
+
+	header h1 {
+		font-size: 0.875rem;
+		font-weight: 400;
+		color: #111;
+		margin: 0;
+	}
+
+	header .alias {
+		font-size: 0.875rem;
+		color: #999;
+		display: block;
+		margin-top: 0.15rem;
+	}
+
+	.bio {
+		margin-top: 2rem;
+	}
+
+	.bio p {
+		font-size: 0.875rem;
+		line-height: 1.75;
+		color: #333;
+		margin-bottom: 1.25rem;
+	}
+
+	.bio p:last-child {
+		margin-bottom: 0;
+	}
+
+	.bio a {
+		color: #333;
+		text-decoration: underline;
+		text-decoration-color: #ccc;
+		text-underline-offset: 2px;
+		transition: text-decoration-color 0.2s;
+	}
+
+	.bio a:hover {
+		text-decoration-color: #333;
+	}
+
+	.projects {
+		margin-top: 3rem;
+	}
+
+	.projects h2 {
+		font-size: 0.875rem;
+		font-weight: 400;
+		color: #999;
+		margin: 0 0 0.75rem 0;
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid #eee;
+	}
+
+	.projects ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.projects li {
+		display: flex;
+		align-items: baseline;
+		gap: 1.5rem;
+		padding: 0.5rem 0;
+	}
+
+	.projects li a {
+		font-size: 0.875rem;
+		color: #111;
+		text-decoration: none;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.projects li a:hover {
+		text-decoration: underline;
+	}
+
+	.projects .desc {
+		font-size: 0.875rem;
+		color: #999;
+	}
 </style>
