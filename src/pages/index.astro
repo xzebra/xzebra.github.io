@@ -5,8 +5,8 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 <SiteLayout title="Jorge Romanos" description="Software developer">
 	<main class="page">
 		<header>
-			<h1>Jorge Romanos <span class="alias">zebra</span></h1>
-			<span class="tagline"><svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Spain</span>
+			<h1>Jorge Romanos</h1>
+			<span class="tagline"><svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Spain <span class="dot">&middot;</span> @zebra</span>
 		</header>
 
 		<div class="bio">
@@ -169,11 +169,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		line-height: 1.2;
 	}
 
-	header .alias {
-		color: #999;
-		font-weight: 400;
-	}
-
 	header .tagline {
 		font-size: 0.875rem;
 		color: #999;
@@ -186,6 +181,10 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	.loc-icon {
 		width: 13px;
 		height: 13px;
+	}
+
+	.dot {
+		margin: 0 5px;
 	}
 
 	.bio {
