@@ -4,21 +4,21 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 <SiteLayout title="Jorge Romanos" description="Software developer">
 	<main class="page">
-		<header>
+		<header data-anim>
 			<h1>Jorge Romanos</h1>
 			<span class="tagline"><svg class="loc-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Spain <span class="dot">&middot;</span> @zebra</span>
 		</header>
 
 		<div class="bio">
-			<p>
+			<p data-anim>
 				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com" class="whop-link" data-text="Whop"><img src="/images/whop.png" alt="Whop" class="inline-icon" width="14" height="14" /> Whop</a> as an iOS Engineer.
 			</p>
 
-			<p>
+			<p data-anim>
 				I started learning to code at a young age by modding videogames, then took it more seriously with competitive programming and made it to the national final. I studied Software Engineering at the <a href="https://eina.unizar.es/en/welcome" data-text="University of Zaragoza">University of Zaragoza</a>. I love automating stuff and in my free time I build apps and tools.
 			</p>
 
-			<p class="socials-line">
+			<p class="socials-line" data-anim>
 				You can find me on
 				<span class="app-icons">
 					<a href="https://x.com/zebra_dev" target="_blank" rel="noreferrer" aria-label="X" class="app-icon">
@@ -38,33 +38,33 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		</div>
 
 		<section class="projects">
-			<h2>Projects</h2>
+			<h2 data-anim>Projects</h2>
 			<ul>
-				<li>
+				<li data-anim>
 					<a href="https://autoglot.app"><img src="/images/projects/Autoglot.svg" alt="" class="project-icon" width="18" height="18" /> Autoglot</a>
 					<span class="desc">AI-powered translation for your apps</span>
 				</li>
-				<li>
+				<li data-anim>
 					<a href="https://appframes.app"><img src="/images/projects/AppFrames.png" alt="" class="project-icon" width="18" height="18" /> AppFrames</a>
 					<span class="desc">Device frame screenshots for the App Store</span>
 				</li>
-				<li>
+				<li data-anim>
 					<a href="https://billsharing.app"><img src="/images/projects/BillShare.png" alt="" class="project-icon" width="18" height="18" /> BillShare</a>
 					<span class="desc">Split bills with friends</span>
 				</li>
-				<li>
+				<li data-anim>
 					<a href="https://blocko.app"><img src="/images/projects/Blocko.png" alt="" class="project-icon" width="18" height="18" /> Blocko</a>
 					<span class="desc">Infinite puzzles to train your brain</span>
 				</li>
-				<li>
+				<li data-anim>
 					<a href="https://visitplaces.app"><img src="/images/projects/Places.jpg" alt="" class="project-icon" width="18" height="18" /> Places</a>
 					<span class="desc">Save and share places you visit</span>
 				</li>
-				<li>
+				<li data-anim>
 					<a href="https://timedeposit.app"><img src="/images/projects/TimeDeposit.png" alt="" class="project-icon" width="18" height="18" /> TimeDeposit</a>
 					<span class="desc">Track your time deposits</span>
 				</li>
-				<li class="teaser">
+				<li class="teaser" data-anim>
 					<span class="teaser-text">Always building something new...</span>
 					<div class="ghchart-wrap">
 						<div class="ghchart" id="ghchart"></div>
@@ -403,6 +403,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		vertical-align: -2px;
 		filter: grayscale(100%);
 		transition: filter 0.3s ease;
+		background: #e5e7eb;
 	}
 
 	.whop-link:hover .inline-icon {
@@ -503,6 +504,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		border-radius: 4px;
 		filter: grayscale(100%);
 		transition: filter 0.3s ease;
+		background: #e5e7eb;
 	}
 
 	.projects li:hover .project-icon {
@@ -563,4 +565,21 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	.teaser:hover .teaser-text {
 		color: #666;
 	}
+
+	[data-anim] {
+		opacity: 0;
+		transform: translateY(12px);
+		transition: opacity 0.5s ease, transform 0.5s ease;
+	}
+
+	[data-anim].visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
 </style>
+
+<script>
+	document.querySelectorAll('[data-anim]').forEach((el, i) => {
+		setTimeout(() => el.classList.add('visible'), i * 60);
+	});
+</script>
