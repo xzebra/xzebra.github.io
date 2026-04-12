@@ -228,6 +228,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		height: 14px;
 		border-radius: 3px;
 		vertical-align: -2px;
+		filter: grayscale(100%);
+		transition: filter 0.3s ease;
+	}
+
+	.whop-link:hover .inline-icon {
+		filter: grayscale(0%);
 	}
 
 	/* App icon stack */
@@ -261,6 +267,15 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		display: block;
 		width: 18px;
 		height: 18px;
+	}
+
+	.app-icons {
+		filter: grayscale(100%);
+		transition: filter 0.3s ease;
+	}
+
+	.app-icons:hover {
+		filter: grayscale(0%);
 	}
 
 	.projects {
