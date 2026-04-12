@@ -1,0 +1,43 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+
+  <!-- Logo (centered autobot) -->
+  <g transform="translate(36, 28) scale(0.6)" fill="#121417">
+    <rect x="53" y="15" width="17" height="27"/>
+    <rect x="53" width="17" height="14"/>
+    <rect x="71" width="17" height="14"/>
+    <rect x="35" width="17" height="14"/>
+    <rect y="42" width="17" height="27"/>
+    <rect x="17" y="28" width="17" height="14"/>
+    <rect x="35" y="28" width="17" height="14"/>
+    <rect x="71" y="28" width="17" height="14"/>
+    <rect x="89" y="28" width="17" height="14"/>
+    <rect x="107" y="28" width="17" height="14"/>
+    <rect x="125" y="28" width="17" height="14"/>
+    <rect x="143" y="28" width="17" height="14"/>
+    <rect x="17" y="125" width="17" height="14"/>
+    <rect x="53" y="125" width="17" height="14"/>
+    <rect x="71" y="125" width="17" height="14"/>
+    <rect x="89" y="125" width="17" height="14"/>
+    <rect x="107" y="125" width="17" height="14"/>
+    <rect x="143" y="125" width="17" height="14"/>
+    <rect y="70" width="17" height="27"/>
+    <rect y="98" width="17" height="27"/>
+    <rect x="160" y="42" width="17" height="27"/>
+    <rect x="160" y="70" width="17" height="27"/>
+    <rect x="160" y="98" width="17" height="27"/>
+    <rect x="55" y="71" width="17" height="27"/>
+    <rect x="126" y="71" width="17" height="27"/>
+    <rect x="53" y="181" width="17" height="27"/>
+    <rect x="107" y="181" width="17" height="27"/>
+    <rect x="53" y="166" width="17" height="14"/>
+    <rect x="71" y="166" width="17" height="14"/>
+    <rect x="89" y="166" width="17" height="14"/>
+    <rect x="107" y="166" width="17" height="14"/>
+    <rect x="35" y="125" width="17" height="27"/>
+    <rect x="35" y="153" width="17" height="27"/>
+    <rect x="125" y="153" width="17" height="27"/>
+    <rect x="125" y="125" width="17" height="27"/>
+  </g>
+</svg>

@@ -11,11 +11,11 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 		<div class="bio">
 			<p>
-				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com" class="whop-link"><img src="/images/whop.png" alt="Whop" class="inline-icon" /> Whop</a> as an iOS Engineer.
+				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com" class="whop-link" data-text="Whop"><img src="/images/whop.png" alt="Whop" class="inline-icon" /> Whop</a> as an iOS Engineer.
 			</p>
 
 			<p>
-				I started learning to code at a young age by modding videogames, then took it more seriously with competitive programming and made it to the national final. I studied Software Engineering at the <a href="https://eina.unizar.es/en/welcome">University of Zaragoza</a>. I love automating stuff and in my free time I build apps and tools.
+				I started learning to code at a young age by modding videogames, then took it more seriously with competitive programming and made it to the national final. I studied Software Engineering at the <a href="https://eina.unizar.es/en/welcome" data-text="University of Zaragoza">University of Zaragoza</a>. I love automating stuff and in my free time I build apps and tools.
 			</p>
 
 			<p class="socials-line">
@@ -41,7 +41,11 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			<h2>Projects</h2>
 			<ul>
 				<li>
-					<a href="https://appframes.app"><img src="/images/projects/AppFrames.jpg" alt="" class="project-icon" /> AppFrames</a>
+					<a href="https://autoglot.app"><img src="/images/projects/Autoglot.svg" alt="" class="project-icon" /> Autoglot</a>
+					<span class="desc">AI-powered translation for your apps</span>
+				</li>
+				<li>
+					<a href="https://appframes.app"><img src="/images/projects/AppFrames.png" alt="" class="project-icon" /> AppFrames</a>
 					<span class="desc">Device frame screenshots for the App Store</span>
 				</li>
 				<li>
@@ -152,6 +156,14 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	icons.forEach((icon, i) => {
 		icon.style.transform = `translateX(${i === 0 ? 0 : COLLAPSED_OFFSET * i}px) scale(1)`;
 	});
+
+	// Make project rows clickable
+	document.querySelectorAll('.projects li').forEach(li => {
+		li.addEventListener('click', () => {
+			const link = li.querySelector('a');
+			if (link) window.open(link.href, '_blank');
+		});
+	});
 </script>
 
 <style is:inline>
@@ -194,7 +206,8 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	.bio p {
 		font-size: 0.875rem;
 		line-height: 1.75;
-		color: #333;
+		color: #000;
+		font-weight: 450;
 		margin-bottom: 1.25rem;
 	}
 
@@ -295,6 +308,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		display: flex;
 		align-items: center;
 		padding: 0.45rem 0;
+		cursor: pointer;
 	}
 
 	.projects li a {
