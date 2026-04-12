@@ -40,12 +40,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		<section class="projects">
 			<h2>Projects</h2>
 			<ul>
-				<li class="teaser">
-					<span class="teaser-text">Always building something new...</span>
-					<div class="ghchart-wrap">
-						<div class="ghchart" id="ghchart"></div>
-					</div>
-				</li>
 				<li>
 					<a href="https://autoglot.app"><img src="/images/projects/Autoglot.svg" alt="" class="project-icon" /> Autoglot</a>
 					<span class="desc">AI-powered translation for your apps</span>
@@ -69,6 +63,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 				<li>
 					<a href="https://timedeposit.app"><img src="/images/projects/TimeDeposit.png" alt="" class="project-icon" /> TimeDeposit</a>
 					<span class="desc">Track your time deposits</span>
+				</li>
+				<li class="teaser">
+					<span class="teaser-text">Always building something new...</span>
+					<div class="ghchart-wrap">
+						<div class="ghchart" id="ghchart"></div>
+					</div>
 				</li>
 			</ul>
 		</section>
@@ -195,18 +195,54 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		});
 	}
 
+	let pendingTimers = [];
+
 	function animateCells(show) {
+		// Cancel all pending animations
+		pendingTimers.forEach(id => clearTimeout(id));
+		pendingTimers = [];
+
+		// Immediately set all cells to target if hiding (clean slate)
+		if (!show) {
+			allCells.forEach(({ el }) => {
+				el.style.transition = 'none';
+				el.style.transform = 'scale(0)';
+			});
+			return;
+		}
+
+		// When showing, first reset all to 0 instantly, then animate in
+		allCells.forEach(({ el }) => {
+			el.style.transition = 'none';
+			el.style.transform = 'scale(0)';
+		});
+
+		// Force reflow
+		chart.offsetHeight;
+
+		const maxCol = allCells.length > 0 ? allCells[allCells.length - 1].col : 0;
 		allCells.forEach(({ el, col }) => {
-			const delay = show ? col * 20 : (allCells[allCells.length - 1].col - col) * 15;
-			setTimeout(() => {
+			const delay = col * 15;
+			const id = setTimeout(() => {
 				el.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)';
-				el.style.transform = show ? 'scale(1)' : 'scale(0)';
+				el.style.transform = 'scale(1)';
 			}, delay);
+			pendingTimers.push(id);
 		});
 	}
 
-	teaser.addEventListener('mouseenter', () => animateCells(true));
-	teaser.addEventListener('mouseleave', () => animateCells(false));
+	chart.style.cursor = 'pointer';
+	chart.addEventListener('click', () => window.open('https://github.com/xzebra', '_blank'));
+
+	let chartRevealed = false;
+	teaser.addEventListener('mouseenter', () => {
+		if (!chartRevealed) {
+			chartRevealed = true;
+			document.querySelector('.ghchart-wrap').style.maxHeight = '120px';
+			document.querySelector('.ghchart-wrap').style.opacity = '1';
+			animateCells(true);
+		}
+	});
 
 	// Calculate how many weeks fit the container
 	const containerWidth = chart.parentElement.offsetWidth || 500;
@@ -454,10 +490,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			opacity 0.3s ease;
 	}
 
-	.teaser:hover .ghchart-wrap {
-		max-height: 120px;
-		opacity: 1;
-	}
 
 	.ghchart {
 		display: flex;
@@ -478,6 +510,13 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		aspect-ratio: 1;
 		border-radius: 2px;
 		background: #ebedf0;
+		transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.ghchart-cell:hover {
+		transform: scale(1.6) !important;
+		z-index: 3;
+		position: relative;
 	}
 
 	.teaser:hover .teaser-text {
