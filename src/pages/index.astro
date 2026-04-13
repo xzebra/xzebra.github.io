@@ -163,6 +163,33 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		icon.style.transform = `translateX(${i === 0 ? 0 : COLLAPSED_OFFSET * i}px) scale(1)`;
 	});
 
+	// Mobile: tap to expand, tap icon to open link
+	let touchExpanded = false;
+	stack.addEventListener('touchstart', (e) => {
+		if (!touchExpanded) {
+			e.preventDefault();
+			touchExpanded = true;
+			stack.classList.add('touched');
+			springs.forEach((s, i) => {
+				s.target = i === 0 ? 0 : EXPANDED_GAP;
+			});
+			startAnim();
+		}
+	}, { passive: false });
+
+	// Collapse on tap outside
+	document.addEventListener('touchstart', (e) => {
+		if (touchExpanded && !stack.contains(e.target)) {
+			touchExpanded = false;
+			stack.classList.remove('touched');
+			springs.forEach((s, i) => {
+				s.target = i === 0 ? 0 : COLLAPSED_OFFSET;
+				s.scaleTarget = 1;
+			});
+			startAnim();
+		}
+	});
+
 	// Make project rows clickable
 	document.querySelectorAll('.projects li:not(.teaser)').forEach(li => {
 		li.addEventListener('click', () => {
@@ -384,7 +411,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	.bio a {
 		color: #111;
 		text-decoration: none;
-		font-weight: 500;
+		font-weight: 550;
 		transition: font-weight 0.15s ease;
 	}
 
@@ -401,13 +428,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		height: 14px;
 		border-radius: 3px;
 		vertical-align: -2px;
-		filter: grayscale(100%);
-		transition: filter 0.3s ease;
 		background: #e5e7eb;
-	}
-
-	.whop-link:hover .inline-icon {
-		filter: grayscale(0%);
 	}
 
 	/* App icon stack */
@@ -448,9 +469,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		transition: filter 0.3s ease;
 	}
 
-	.app-icons:hover {
+	.app-icons:hover,
+	.app-icons.touched {
 		filter: grayscale(0%);
 	}
+
+
 
 	.projects {
 		margin-top: 3rem;
@@ -502,13 +526,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		width: 18px;
 		height: 18px;
 		border-radius: 4px;
-		filter: grayscale(100%);
-		transition: filter 0.3s ease;
 		background: #e5e7eb;
-	}
-
-	.projects li:hover .project-icon {
-		filter: grayscale(0%);
 	}
 
 	.projects .desc {
