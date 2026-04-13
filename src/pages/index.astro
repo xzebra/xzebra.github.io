@@ -307,15 +307,30 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	chart.style.cursor = 'pointer';
 	chart.addEventListener('click', () => window.open('https://github.com/xzebra', '_blank'));
 
+	const isMobile = window.matchMedia('(max-width: 768px)').matches;
 	let chartRevealed = false;
-	teaser.addEventListener('mouseenter', () => {
+
+	function revealChart() {
 		if (!chartRevealed) {
 			chartRevealed = true;
 			document.querySelector('.ghchart-wrap').style.maxHeight = '120px';
 			document.querySelector('.ghchart-wrap').style.opacity = '1';
 			animateCells(true);
 		}
-	});
+	}
+
+	if (isMobile) {
+		// Auto-reveal after data loads
+		const observer = new MutationObserver(() => {
+			if (chart.children.length > 0) {
+				observer.disconnect();
+				revealChart();
+			}
+		});
+		observer.observe(chart, { childList: true });
+	}
+
+	teaser.addEventListener('mouseenter', revealChart);
 
 	// Calculate how many weeks fit the container
 	const containerWidth = chart.parentElement.offsetWidth || 500;
@@ -512,6 +527,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		align-items: center;
 		gap: 6px;
 		width: 130px;
+		font-weight: 550;
 	}
 
 	.projects li a {
@@ -555,6 +571,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		transition:
 			max-height 0.5s ease,
 			opacity 0.3s ease;
+		margin-top: 1em;
 	}
 
 
