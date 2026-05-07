@@ -5,8 +5,11 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 <SiteLayout title="Jorge Romanos" description="Software developer">
 	<main class="page">
 		<header data-anim>
-			<h1>Jorge Romanos</h1>
-			<span class="tagline"><svg class="loc-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Spain <span class="dot">&middot;</span> @zebra</span>
+			<img src="/favicon.png" alt="Jorge Romanos" class="avatar" width="44" height="44" />
+			<div class="header-text">
+				<h1>Jorge Romanos</h1>
+				<span class="tagline"><svg class="loc-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Spain <span class="dot">&middot;</span> @zebra</span>
+			</div>
 		</header>
 
 		<div class="bio">
@@ -381,6 +384,28 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		padding: 5rem 1.5rem 4rem;
 	}
 
+	header {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.avatar {
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		background: #e5e7eb;
+		flex-shrink: 0;
+		object-fit: cover;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+	}
+
+	.header-text {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+
 	header h1 {
 		font-size: 0.875rem;
 		font-weight: 400;
@@ -425,17 +450,16 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 	.bio a {
 		color: #111;
-		text-decoration: none;
-		font-weight: 550;
-		transition: font-weight 0.15s ease;
+		font-weight: 500;
+		text-decoration: underline;
+		text-decoration-color: #ccc;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+		transition: text-decoration-color 0.15s ease;
 	}
 
 	.bio a:hover {
-		font-weight: 700;
-	}
-
-	.whop-link {
-		text-decoration: none !important;
+		text-decoration-color: #111;
 	}
 
 	.inline-icon {
@@ -520,22 +544,22 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	.projects li a {
 		font-size: 0.875rem;
 		color: #111;
-		text-decoration: none;
 		white-space: nowrap;
 		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
 		width: 130px;
-		font-weight: 550;
-	}
-
-	.projects li a {
-		transition: font-weight 0.15s ease;
+		font-weight: 500;
+		text-decoration: underline;
+		text-decoration-color: #ccc;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+		transition: text-decoration-color 0.15s ease;
 	}
 
 	.projects li:hover a {
-		font-weight: 700;
+		text-decoration-color: #111;
 	}
 
 	.project-icon {
