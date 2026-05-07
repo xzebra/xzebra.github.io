@@ -14,7 +14,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 		<div class="bio">
 			<p data-anim>
-				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com" class="whop-link" data-text="Whop"><img src="/images/whop.png" alt="Whop" class="inline-icon" width="14" height="14" /> Whop</a> as an iOS Engineer.
+				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com" class="whop-link" data-text="Whop"><img src="/images/whop.png" alt="Whop" class="inline-icon" width="14" height="14" /> <span>Whop</span></a> as an iOS Engineer.
 			</p>
 
 			<p data-anim>
@@ -468,6 +468,23 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		border-radius: 3px;
 		vertical-align: -2px;
 		background: #e5e7eb;
+		margin-left: 2px;
+	}
+
+	.bio a.whop-link {
+		text-decoration: none;
+	}
+
+	.bio a.whop-link span {
+		text-decoration: underline;
+		text-decoration-color: #ccc;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+		transition: text-decoration-color 0.15s ease;
+	}
+
+	.bio a.whop-link:hover span {
+		text-decoration-color: #111;
 	}
 
 	/* App icon stack */
