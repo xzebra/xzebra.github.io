@@ -1,11 +1,22 @@
 ---
+import { Image } from 'astro:assets';
 import SiteLayout from '../layouts/SiteLayout.astro';
+
+import avatar from '../assets/favicon.png';
+import whop from '../assets/images/whop.png';
+import bookshelf from '../assets/images/projects/Bookshelf.png';
+import autoglot from '../assets/images/projects/Autoglot.svg';
+import appframes from '../assets/images/projects/AppFrames.png';
+import billshare from '../assets/images/projects/BillShare.png';
+import blocko from '../assets/images/projects/Blocko.png';
+import places from '../assets/images/projects/Places.jpg';
+import timedeposit from '../assets/images/projects/TimeDeposit.png';
 ---
 
 <SiteLayout title="Jorge Romanos" description="Software developer">
 	<main class="page">
 		<header data-anim>
-			<img src="/favicon.png" alt="Jorge Romanos" class="avatar" width="44" height="44" />
+			<Image src={avatar} alt="Jorge Romanos" class="avatar" width={44} height={44} densities={[1.5, 2]} />
 			<div class="header-text">
 				<h1>Jorge Romanos</h1>
 				<span class="tagline"><svg class="loc-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Spain <span class="dot">&middot;</span> @zebra</span>
@@ -14,7 +25,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 		<div class="bio">
 			<p data-anim>
-				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com/network" target="_blank" rel="noreferrer" class="whop-link" data-text="Whop"><img src="/images/whop.png" alt="Whop" class="inline-icon" width="14" height="14" /> <span>Whop</span></a> as an iOS Engineer.
+				Software Engineer with a special interest in the Apple ecosystem. Cybersecurity enthusiast. Currently working at <a href="https://whop.com/network" target="_blank" rel="noreferrer" class="whop-link" data-text="Whop"><Image src={whop} alt="Whop" class="inline-icon" width={14} height={14} densities={[1.5, 2]} /> <span>Whop</span></a> as an iOS Engineer.
 			</p>
 
 			<p data-anim>
@@ -45,31 +56,31 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			<ul>
 				<li class="has-new" data-anim>
 					<span class="new-badge" aria-hidden="true">new<svg class="new-rays" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="var(--apple-blue)" stroke-width="2.2" stroke-linecap="round"><path d="M83 31 Q87 29.6 90.6 31.4" stroke-width="2.4"/><path d="M73.3 40.6 Q76.8 42.6 78.6 45.4"/><path d="M50.5 45 Q49 48 50.4 51.6" stroke-width="2.3"/><path d="M26.7 40.6 Q23.2 42.6 21.4 45.4"/><path d="M17 31 Q13 29.6 9.4 31.4" stroke-width="2.4"/><path d="M26.7 19.4 Q23.2 17.4 21.4 14.6"/><path d="M49.6 15 Q51 12 49.6 8.4" stroke-width="2.3"/><path d="M73.3 19.4 Q76.8 17.4 78.6 14.6"/></svg></span>
-					<a href="https://bookshelf.xzebra.dev" target="_blank" rel="noreferrer"><img src="/images/projects/Bookshelf.png" alt="" class="project-icon" width="18" height="18" /> Bookshelf</a>
+					<a href="https://bookshelf.xzebra.dev" target="_blank" rel="noreferrer"><Image src={bookshelf} alt="" class="project-icon" width={18} height={18} densities={[1.5, 2]} /> Bookshelf</a>
 					<span class="desc">Your personal reading library</span>
 				</li>
 				<li data-anim>
-					<a href="https://autoglot.app" target="_blank" rel="noreferrer"><img src="/images/projects/Autoglot.svg" alt="" class="project-icon" width="18" height="18" /> Autoglot</a>
+					<a href="https://autoglot.app" target="_blank" rel="noreferrer"><Image src={autoglot} alt="" class="project-icon" width={18} height={18} /> Autoglot</a>
 					<span class="desc">AI-powered translation for your apps</span>
 				</li>
 				<li data-anim>
-					<a href="https://appframes.app" target="_blank" rel="noreferrer"><img src="/images/projects/AppFrames.png" alt="" class="project-icon" width="18" height="18" /> AppFrames</a>
+					<a href="https://appframes.app" target="_blank" rel="noreferrer"><Image src={appframes} alt="" class="project-icon" width={18} height={18} densities={[1.5, 2]} /> AppFrames</a>
 					<span class="desc">Device frame screenshots for the App Store</span>
 				</li>
 				<li data-anim>
-					<a href="https://billsharing.app" target="_blank" rel="noreferrer"><img src="/images/projects/BillShare.png" alt="" class="project-icon" width="18" height="18" /> BillShare</a>
+					<a href="https://billsharing.app" target="_blank" rel="noreferrer"><Image src={billshare} alt="" class="project-icon" width={18} height={18} densities={[1.5, 2]} /> BillShare</a>
 					<span class="desc">Split bills with friends</span>
 				</li>
 				<li data-anim>
-					<a href="https://blocko.app" target="_blank" rel="noreferrer"><img src="/images/projects/Blocko.png" alt="" class="project-icon" width="18" height="18" /> Blocko</a>
+					<a href="https://blocko.app" target="_blank" rel="noreferrer"><Image src={blocko} alt="" class="project-icon" width={18} height={18} densities={[1.5, 2]} /> Blocko</a>
 					<span class="desc">Infinite puzzles to train your brain</span>
 				</li>
 				<li data-anim>
-					<a href="https://visitplaces.app" target="_blank" rel="noreferrer"><img src="/images/projects/Places.jpg" alt="" class="project-icon" width="18" height="18" /> Places</a>
+					<a href="https://visitplaces.app" target="_blank" rel="noreferrer"><Image src={places} alt="" class="project-icon" width={18} height={18} densities={[1.5, 2]} /> Places</a>
 					<span class="desc">Save and share places you visit</span>
 				</li>
 				<li data-anim>
-					<a href="https://timedeposit.app" target="_blank" rel="noreferrer"><img src="/images/projects/TimeDeposit.png" alt="" class="project-icon" width="18" height="18" /> TimeDeposit</a>
+					<a href="https://timedeposit.app" target="_blank" rel="noreferrer"><Image src={timedeposit} alt="" class="project-icon" width={18} height={18} densities={[1.5, 2]} /> TimeDeposit</a>
 					<span class="desc">Track your time deposits</span>
 				</li>
 				<li class="teaser" data-anim>
