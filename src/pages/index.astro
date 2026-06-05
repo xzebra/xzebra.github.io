@@ -43,6 +43,11 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		<section class="projects">
 			<h2 data-anim>Projects</h2>
 			<ul>
+				<li class="has-new" data-anim>
+					<span class="new-badge" aria-hidden="true">new<svg class="new-circle" viewBox="0 0 90 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M70 13C61 5 36 4 21 10C6 16 4 31 18 39C36 49 71 44 79 28C83 20 78 11 63 9" stroke="#ff3b30" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+					<a href="https://bookshelf.xzebra.dev"><img src="/images/projects/Bookshelf.png" alt="" class="project-icon" width="18" height="18" /> Bookshelf</a>
+					<span class="desc">Your personal reading library</span>
+				</li>
 				<li data-anim>
 					<a href="https://autoglot.app"><img src="/images/projects/Autoglot.svg" alt="" class="project-icon" width="18" height="18" /> Autoglot</a>
 					<span class="desc">AI-powered translation for your apps</span>
@@ -591,6 +596,42 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 	.projects .desc {
 		font-size: 0.875rem;
 		color: #999;
+	}
+
+	.projects li.has-new {
+		position: relative;
+	}
+
+	.new-badge {
+		position: absolute;
+		left: -50px;
+		top: 50%;
+		transform: translateY(-50%) rotate(-11deg);
+		font-family: 'Caveat', cursive;
+		font-weight: 700;
+		font-size: 1.2rem;
+		line-height: 1;
+		color: #ff3b30;
+		pointer-events: none;
+		white-space: nowrap;
+	}
+
+	.new-circle {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 58px;
+		height: 31px;
+		transform: translate(-50%, -50%);
+		overflow: visible;
+	}
+
+	@media (max-width: 620px) {
+		.new-badge {
+			left: -2px;
+			top: -15px;
+			transform: rotate(-11deg);
+		}
 	}
 
 	.teaser {
