@@ -394,10 +394,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 		width: 44px;
 		height: 44px;
 		border-radius: 50%;
-		background: #e5e7eb;
 		flex-shrink: 0;
 		object-fit: cover;
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+		outline-offset: calc(1px * -1);
+        outline-style: solid;
+        outline-width: 1px;
+        outline-color: color-mix(in oklab, black 5%, transparent);
 	}
 
 	.header-text {
